@@ -5,7 +5,7 @@ eProject-2023 Batch no: T1.2302.M0
 
 Project title: A-1Uniforms
 
-========> Group DUAN <=========
+========> Group 6 <=========
 
 4 collaborators:
 
@@ -19,11 +19,11 @@ Student1449577 Nguyễn xuân thuấn anh
 
 ============================
 
-eProject documentation at https://github.com/cuoilen007/test/tree/main/document
+eProject documentation at https://github.com/Hoankhai1/DUAN/tree/main/document
 
 ============================
 
-eProject published at https://lnnhi1310.github.io/Kitchen-Appliances/index.html
+eProject published at https://hoankhai1.github.io/DUAN/
 
 ============================
 
