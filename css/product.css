@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 80px;
+    padding: 10px 80px;
     background: #E3E6F3;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
@@ -59,7 +59,7 @@
     #menucon{
         border-right: solid;
         border-color: rgb(234, 234, 234);
-        width:340px;
+        width: 500px;
     }
     .fitter{
         padding-left: 20px;
@@ -70,19 +70,27 @@
         border-color: rgb(234, 234, 234);
         width: 300px;
     }
-    #div1 input{
+    #div1 button{
         padding: 5px;
         margin: 10px;
         
         background-color: white;
         border-color: #3E69A4;
         border-radius: 10px;
-        width: 70px;
+        width: 90px;
     }
-    #div1 input:hover{
+    #div1 button:hover{
         background:#013F70 ;
         color: #fff;
     }
+    .red-button{
+        color: #c2033c ;
+        
+    }
+    .red1-button{
+        color: #c2033c ;
+    }
+   
     #category{
         padding-top: 10px;
         padding-left: 20px;
@@ -118,6 +126,6 @@
     }
    
     footer{
-        text-align: center;
+        margin-left: 50%;
         padding-bottom: 20px;
     }

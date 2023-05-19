@@ -23,7 +23,7 @@
         <a href="../index.html"><img src="../image/images/logo/A-1bluelogo.png" alt="" width="50"></a>
         <div>
             <ul id="navbar">
-                <li><a href="Product.html">Our Products</a></li>
+                <li><a href="../product/product.html">Our Products</a></li>
                 <li><a href="Contact.html">Contact us</a></li>
                 <li><a href="Feedback.html">Feedback</a></li>
                 <li><a href="Cart.html"><i style='font-size:24px' class='fas'>&#xf291;</i> </a></li>
@@ -41,25 +41,35 @@
             <img class="product-image" src="../image/images/Áo sơmi/áo sominam.jpg" alt="Tên sản phẩm">
         </div>
         <div class="chose">
+            <div class="product-name">
+                <h3>{{product-name}}</h3>
+            </div>
+            <div class="Price">
+               <h3>{{Price}}</h3> 
+            </div>
             <div class="color">
-                
+
                 <h3>Color</h3>
                 <div>
                     <button onclick="changeColor(this)" class="blue1-button" style="background-color: yellow;"></button>
-                    <button onclick="changeColor(this)" class="yellow-button"  style="background-color: blue;"></button>
-                    <button onclick="changeColor(this)" class="yellow-button"  style="background-color: white;"></button>
+                    <button onclick="changeColor(this)" class="yellow-button" style="background-color: blue;"></button>
+                    <button onclick="changeColor(this)" class="yellow-button" style="background-color: white;"></button>
                 </div>
             </div>
             <div class="size">
-                <h3>Size</h3>
+                <h3>Size <button onclick="toggleImage()">Size chart</button></h3>
+
+                <div id="myModal" class="modal" onclick="toggleImage()" style="display:none">
+                    <img id="myImage" class="modal-content" src="../image/sizechart.jpg">
+                </div>
                 <div class="size-button">
-                    <button onclick="changeSize(this)" >3-4Y(100)</button>
-                    <button onclick="changeSize(this)" >4-5Y(110)</button>
-                    <button onclick="changeSize(this)" >6-7Y(120)</button>
+                    <button onclick="changeSize(this)">3-4Y(100)</button>
+                    <button onclick="changeSize(this)">4-5Y(110)</button>
+                    <button onclick="changeSize(this)">6-7Y(120)</button>
                     <button onclick="changeSize(this)">8-9Y(130)</button>
-                    <button onclick="changeSize(this)" >10-11Y(140)</button>
+                    <button onclick="changeSize(this)">10-11Y(140)</button>
                     <button onclick="changeSize(this)">12-13Y(150)</button>
-                    <button onclick="changeSize(this)" >14Y(160)</button>
+                    <button onclick="changeSize(this)">14Y(160)</button>
                 </div>
             </div>
             <div class="qua">
@@ -73,13 +83,25 @@
                 </div>
             </div>
             <div class="cart">
-                <i class='fas fa-shopping-cart'></i> <input type="submit" id="save" value="Add to Cart " onclick="submit()">
+               <button id="save" onclick="submit()">Add to Cart <i class='fas fa-shopping-cart'></i></button>
             </div>
             <div id="result"></div>
         </div>
+        <div class="noti" id="notification" style="display: none;">
+            <div class="text">
+                <p>Item added to your cart</p>
+                <p>Quantity: {}</p>
+                <div class="view">
+                    <a href="#">View my cart</a>
+                </div>
+                <div class="conti" id="continue-shopping">
+                    <button>Continue shopping</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
-           function changeColor(button) {
+        function changeColor(button) {
             var buttons = document.getElementsByTagName("button");
             for (var i = 0; i < buttons.length; i++) {
                 if (buttons[i] === button) {
@@ -99,8 +121,16 @@
                 }
             }
         }
+        function toggleImage() {
+            var modal = document.getElementById('myModal');
+            if (modal.style.display === "none") {
+                modal.style.display = "block";
+            } else {
+                modal.style.display = "none";
+            }
+        }
 
-       document.getElementById("decrease").addEventListener("click", function () {
+        document.getElementById("decrease").addEventListener("click", function () {
             const quantityInput = document.getElementById("quantity");
             let quantity = quantityInput.value;
             if (quantity > 1) {
@@ -117,9 +147,20 @@
             }
             quantityInput.value = quantity;
         });
-        function submit(){
-            
+        function submit() {
+
         }
+        document.getElementById('save').addEventListener('click', function () {
+
+
+
+            document.getElementById('notification').style.display = 'block';
+        });
+
+        document.getElementById('continue-shopping').addEventListener('click', function () {
+
+            document.getElementById('notification').style.display = 'none';
+        });
     </script>
 
 

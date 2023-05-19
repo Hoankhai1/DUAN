@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/0fd8108150.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+
     <style>
-        .title{
+        .title {
             color: #182B48;
             font-size: 42px;
             font-weight: bold;
@@ -22,70 +26,112 @@
 </head>
 
 <body ng-app="myApp">
-    <section id="header">
-        <a href="index.html"><img src="image/images/logo/A-1whitelogo.png" alt="" width="50"></a>
-        <div>
-            <ul id="navbar">
-                <li><a href="#!product">Our Products</a></li>
-                <li><a href="Contact.html">Contact us</a></li>
-                <li><a href="Feedback.html">Feedback</a></li>
-                <li><a href="Cart.html"><i style='font-size:24px' class='fas'>&#xf291;</i> </a></li>
-            </ul>
-        </div>
-    </section>
-   <div class="view" ng-view ></div>
-   <footer class="section-p1">
-    <div class="col">
-        <img class="logo" src="image/images/logo/logo2.png" alt="">
-        <h4>Contact</h4>
-        <p><strong>Address:</strong> 69 Tran Duy Hung, Ha Noi</p>
-        <p><strong>Phone:</strong> +01 234 5678 / +02 345 6789</p>
-        <p><strong>Hours:</strong> 9:00pm - 11:59pm / Mon - Sat</p>
-        <div class="follow">
-            <h4>Follow us</h4>
-            <div class="icon">
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-telegram"></i>
-                <i class="fab fa-youtube"></i>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <h4>About</h4>
-        <a href="#">About Us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Contact Us</a>
-    </div>
-
-    <div class="col">
-        <h4>My Account</h4>
-        <a href="#!SignIn">Sign In</a>
-        <a href="#">View Cart</a>
-        <a href="#">My Wishlist</a>
-        <a href="#">Track My Order</a>
-        <a href="#">Help</a>
-    </div>
-
- 
-
-    <div class="copyright">
-        <p>A-1 Uniform 2023 All Rights Reserved</p>
-    </div>
-</footer>
+    <div class="view" ng-view></div>
     <script>
         var app = angular.module("myApp", ["ngRoute"]);
         app.config(function ($routeProvider) {
             $routeProvider
                 .when("/", { templateUrl: "home.html" })
-                .when("/product", { templateUrl: "product/product.html" })
-                .when("/SignIn", { templateUrl: "b1.html" })
-                .when("/pass", { templateUrl: "b2.html" })
-                .when("/SignUp", { templateUrl: "b3.html" })
+                // .when("/product", { templateUrl: "product/product.html" })
+                // .when("/ship", { templateUrl: "trangmuasam.html" })
+                // .when("/pay", { templateUrl: "trangthanhtoan.html" })
+            // .when("/SignUp", { templateUrl: "b3.html" })
         });
+        class Chatbox {
+            constructor() {
+                this.args = {
+                    openButton: document.querySelector('.chatbox__button'),
+                    chatBox: document.querySelector('.chatbox__support'),
+                    sendButton: document.querySelector('.send__button')
+                }
+                this.state = false;
+                this.messages = [];
+            }
+
+            display() {
+                const { openButton, chatBox, sendButton } = this.args;
+
+                this.prompt(chatBox)
+
+                openButton.addEventListener('click', () => this.toggleState(chatBox))
+
+                sendButton.addEventListener('click', () => this.onSendButton(chatBox))
+
+                const node = chatBox.querySelector('input');
+                node.addEventListener("keyup", ({ key }) => {
+                    if (key === "Enter") {
+                        this.onSendButton(chatBox)
+                    }
+                })
+            }
+
+            prompt(chatbox) {
+                this.messages.push({ name: "Bot", message: "I am Bot, and I can help answer your simple queries." });
+                this.updateChatText(chatbox)
+            }
+
+            toggleState(chatbox) {
+                this.state = !this.state;
+                // show or hides the box
+                if (this.state) {
+                    chatbox.classList.add('chatbox--active')
+                } else {
+                    chatbox.classList.remove('chatbox--active')
+                }
+            }
+
+            onSendButton(chatbox) {
+                var textField = chatbox.querySelector('input');
+                let text1 = textField.value
+                if (text1 === "") {
+                    return;
+                }
+
+                let msg1 = { name: "User", message: text1 }
+                this.messages.push(msg1);
+
+                fetch($SCRIPT_ROOT + '/predict', {
+                    method: 'POST',
+                    body: JSON.stringify({ message: text1 }),
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                })
+                    .then(r => r.json())
+                    .then(r => {
+                        let msg2 = { name: "Bot", message: r.answer };
+                        this.messages.push(msg2);
+                        this.updateChatText(chatbox)
+                        textField.value = ''
+
+                    }).catch((error) => {
+                        console.error('Error:', error);
+                        this.updateChatText(chatbox)
+                        textField.value = ''
+                    });
+            }
+
+            updateChatText(chatbox) {
+                var html = '';
+                this.messages.slice().reverse().forEach(function (item, index) {
+                    if (item.name === "Bot") {
+                        html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
+                    }
+                    else {
+                        html += '<div class="messages__item messages__item--operator">' + item.message + '</div>'
+                    }
+                });
+
+                const chatmessage = chatbox.querySelector('.chatbox__messages');
+                chatmessage.innerHTML = html;
+            }
+        }
+
+
+        const chatbox = new Chatbox();
+        chatbox.display();
     </script>
 </body>
+
 </html>
