@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+</head>
+<body>
+  <h1>Cart</h1>
+
+  <div id="cartItems">
+    <h2>Cart Items</h2>
+    <ul id="itemList"></ul>
+  </div>
+
+  <button onclick="pay()">Pay</button>
+
+  <script>
+   var isLoggedIn = localStorage.getItem("isLoggedIn");
+
+function pay() {
+  if (isLoggedIn === "true") {
+    // Nếu đã đăng nhập, hiển thị thông báo thành công
+    alert("Payment successful!");
+    localStorage.removeItem("cartItems");
+
+    // Xoá các phần tử trong danh sách hiển thị giỏ hàng
+    var itemList = document.getElementById("itemList");
+    itemList.innerHTML = "";
+  } else {
+    // Nếu chưa đăng nhập, yêu cầu đăng nhập
+    alert("Please login to proceed with payment.");
+  }
+}
+
+// Lấy thông tin sản phẩm từ Local Storage và hiển thị nếu có
+var cartItems = localStorage.getItem("cartItems");
+var items = cartItems ? JSON.parse(cartItems) : [];
+
+items.forEach(function(item) {
+  var itemList = document.getElementById("itemList");
+
+  // Hiển thị thông tin sản phẩm trong giỏ hàng
+  var listItem = document.createElement("li");
+  listItem.innerHTML = "<b>Name:</b> " + item.productName + ", <b>Price:</b> $" + item.price + ", <b>Quantity:</b> " + item.quantity;
+  itemList.appendChild(listItem);
+});
+
+  </script>
+</body>
+</html>

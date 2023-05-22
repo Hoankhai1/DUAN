@@ -215,6 +215,18 @@ input[type="number"]::-webkit-outer-spin-button {
     box-shadow: 0 0 15px rgba(0, 0, 0,.4);
     transition: 2s;
 }
+.check a{
+    text-decoration: none;
+    color: #ffffff;
+    
+}
+.check{
+    background-color: #000538;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: solid
+    
+}
 .text{
     text-align: center;
     padding: 20px;
@@ -240,4 +252,9 @@ input[type="number"]::-webkit-outer-spin-button {
     border-top: none ;
     border-left: none;
     border-right: none;
+}
+#countitem{
+   position: relative;
+    right: 35px;
+    top: -10px;
 }

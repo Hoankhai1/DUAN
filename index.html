@@ -5,133 +5,434 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A-1Uniforms</title>
-    <script src="css/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://kit.fontawesome.com/0fd8108150.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-        crossorigin="anonymous"></script>
+    <title>A-1Uniform</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <style>
-        .title {
-            color: #182B48;
-            font-size: 42px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body ng-app="myApp">
-    <div class="view" ng-view></div>
-    <script>
-        var app = angular.module("myApp", ["ngRoute"]);
-        app.config(function ($routeProvider) {
-            $routeProvider
-                .when("/", { templateUrl: "home.html" })
-                // .when("/product", { templateUrl: "product/product.html" })
-                // .when("/ship", { templateUrl: "trangmuasam.html" })
-                // .when("/pay", { templateUrl: "trangthanhtoan.html" })
-            // .when("/SignUp", { templateUrl: "b3.html" })
-        });
-        class Chatbox {
-            constructor() {
-                this.args = {
-                    openButton: document.querySelector('.chatbox__button'),
-                    chatBox: document.querySelector('.chatbox__support'),
-                    sendButton: document.querySelector('.send__button')
-                }
-                this.state = false;
-                this.messages = [];
-            }
+<body>
 
-            display() {
-                const { openButton, chatBox, sendButton } = this.args;
+    <section id="header">
+        <a href="#"><img src="img/logoA1.png" class="logo" alt=""></a>
 
-                this.prompt(chatBox)
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>A-1 Uniform designs innovative styles of</h1>
+        <p>Save more with coupons & up to 70% off! </p>
+        <a href="about.html">Read about us</a>
+    </section>
 
-                openButton.addEventListener('click', () => this.toggleState(chatBox))
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="img/features/f1.png" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f2.png" alt="">
+            <h6>Online Order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f3.png" alt="">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f4.png" alt="">
+            <h6>Promotions</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f5.png" alt="">
+            <h6>Happy Sell</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/features/f6.png" alt="">
+            <h6>F24/7 Support</h6>
+        </div>
+    </section>
 
-                sendButton.addEventListener('click', () => this.onSendButton(chatBox))
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Uniforms Collection New Morden Design</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="img/products/A-1Photos/T-shirt-normal.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-shirt-normal</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/A-1Photos/Shirt-striped.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>Shirt-striped</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/A-1Photos/Shirt.linedshortsleeve.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>Linedshortsleeve T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/A-1Photos/T-shirt-P.T..jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-shirt-P.T</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/A-1Photos/shorts-trousers.jfif" alt="">
+                <div class="des">
+                    <span>Shorts</span>
+                    <h5>Shorts-trousers</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/A-1Photos/Shorts-PT.jfif" alt="">
+                <div class="des">
+                    <span>Shorts</span>
+                    <h5>Shorts-PT</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/A-1Photos/skirt-line.jfif" alt="">
+                <div class="des">
+                    <span>Skirts</span>
+                    <h5>Skirt-line</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/A-1Photos/skirt-long.jfif" alt="">
+                <div class="des">
+                    <span>Skirts</span>
+                    <h5>Skirt-long</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+        </div>
+    </section>
 
-                const node = chatBox.querySelector('input');
-                node.addEventListener("keyup", ({ key }) => {
-                    if (key === "Enter") {
-                        this.onSendButton(chatBox)
-                    }
-                })
-            }
+    <section id="banner" class="section-m1">
+        <h4>Repair Services </h4>
+        <h2>Up to <span>70% Off</span> – All t-Shirts & Accessories</h2>
+        <button class="normal">Explore More</button>
+    </section>
 
-            prompt(chatbox) {
-                this.messages.push({ name: "Bot", message: "I am Bot, and I can help answer your simple queries." });
-                this.updateChatText(chatbox)
-            }
+    <section id="product1" class="section-p1">
+        <h2>New Arrivals</h2>
+        <p>Uniforms Collection New Morden Design</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="img/products/n1.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/n2.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/n3.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/n4.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/n5.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/n6.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/n7.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/products/n8.jpg" alt="">
+                <div class="des">
+                    <span>Shirts</span>
+                    <h5>T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+        </div>
+    </section>
 
-            toggleState(chatbox) {
-                this.state = !this.state;
-                // show or hides the box
-                if (this.state) {
-                    chatbox.classList.add('chatbox--active')
-                } else {
-                    chatbox.classList.remove('chatbox--active')
-                }
-            }
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <h4>crazy deals</h4>
+            <h2>buy 1 get 1 free</h2>
+            <span>The best classic dress is on sale at A-1 Uniform</span>
+            <button class="white">Learn More</button>
+        </div>
+        <div class="banner-box banner-box2">
+            <h4>Classic/Modern</h4>
+            <h2>upcomming season</h2>
+            <span>The best classic dress is on sale at A-1 Uniform</span>
+            <button class="white">Collection</button>
+        </div>
+    </section>
 
-            onSendButton(chatbox) {
-                var textField = chatbox.querySelector('input');
-                let text1 = textField.value
-                if (text1 === "") {
-                    return;
-                }
+    <section id="banner3">
+        <div class="banner-box">
+            <h2>SEASONAL SALE</h2>
+            <h3>Classic Collection -50% OFF</h3>
+        </div>
+        <div class="banner-box banner-box2">
+            <h2>NEW Uniforms COLLECTION </h2>
+            <h3>Modern/ Classic 2022</h3>
+        </div>
+        <div class="banner-box banner-box3">
+            <h2>T-SHIRTS</h2>
+            <h3>New Trendy Prints</h3>
+        </div>
+    </section>
 
-                let msg1 = { name: "User", message: text1 }
-                this.messages.push(msg1);
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
 
-                fetch($SCRIPT_ROOT + '/predict', {
-                    method: 'POST',
-                    body: JSON.stringify({ message: text1 }),
-                    mode: 'cors',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                })
-                    .then(r => r.json())
-                    .then(r => {
-                        let msg2 = { name: "Bot", message: r.answer };
-                        this.messages.push(msg2);
-                        this.updateChatText(chatbox)
-                        textField.value = ''
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logoA1.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong> 562 CMT8 Road, Street 32, HCM City</p>
+            <p><strong>Phone:</strong> (+84) 09 9999 999 /(+84) 09 2345 6789</p>
+            <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+        </div>
 
-                    }).catch((error) => {
-                        console.error('Error:', error);
-                        this.updateChatText(chatbox)
-                        textField.value = ''
-                    });
-            }
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+        </div>
 
-            updateChatText(chatbox) {
-                var html = '';
-                this.messages.slice().reverse().forEach(function (item, index) {
-                    if (item.name === "Bot") {
-                        html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
-                    }
-                    else {
-                        html += '<div class="messages__item messages__item--operator">' + item.message + '</div>'
-                    }
-                });
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="login.html">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
 
-                const chatmessage = chatbox.querySelector('.chatbox__messages');
-                chatmessage.innerHTML = html;
-            }
-        }
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/pay/app.jpg" alt="">
+                <img src="img/pay/play.jpg" alt="">
+            </div>
+            <p>Secured Payment Gateways </p>
+            <img src="img/pay/pay.png" alt="">
+        </div>
+
+        <div class="copyright">
+            <p>Làm đồ án quá chán</p>
+        </div>
+    </footer>
 
 
-        const chatbox = new Chatbox();
-        chatbox.display();
-    </script>
+    <script src="css/script.js"></script>
 </body>
 
 </html>
