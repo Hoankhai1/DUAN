@@ -45,16 +45,16 @@ window.addEventListener('load', function() {
     // Lấy thông tin sản phẩm từ thuộc tính tùy chỉnh của nút button
     var productName = button.getAttribute("product-name");
     var price = parseFloat(button.getAttribute("product-price"));
-    var quantity = parseInt(document.getElementById("quantity").value);
-
+    var quantity = parseInt(document.querySelector('input[type="number"]').value);
+  
     // Lấy thông tin sản phẩm từ Local Storage (nếu có)
     var cartItems = localStorage.getItem("cartItems");
     var items = cartItems ? JSON.parse(cartItems) : [];
-
+  
     var existingItem = items.find(function(item) {
       return item.productName === productName;
     });
-
+  
     if (existingItem) {
       // Nếu sản phẩm đã tồn tại trong giỏ hàng, tăng số lượng
       existingItem.quantity += quantity;
@@ -66,15 +66,15 @@ window.addEventListener('load', function() {
         quantity: quantity
       });
     }
-
+  
     // Lưu thông tin sản phẩm vào Local Storage
     localStorage.setItem("cartItems", JSON.stringify(items));
-
+  
     // Cập nhật số lượng món hàng trong phần "countitem"
     var totalQuantity = items.reduce(function(sum, item) {
       return sum + item.quantity;
     }, 0);
-
+  
     var countItemElement = document.getElementById("countitem");
     countItemElement.innerText = totalQuantity;
   }
