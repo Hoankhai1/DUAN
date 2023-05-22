@@ -37,6 +37,16 @@ p {
     color: #465b52;
     margin: 15px 0 20px 0;
 }
+#prodetails .size h3 button{
+    background-image: url(../img/button.png);
+    border: none;
+    background: none;
+    color:#000
+}
+
+.size{
+    padding-top: 5px;
+}
 
 button.normal {
     font-size: 14px;
