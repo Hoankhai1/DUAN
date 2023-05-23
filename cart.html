@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A-1Uniform</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-
+    <link rel="stylesheet" href="css/cart.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -51,33 +51,7 @@
                     <td>Subtotal</td>
                 </tr>
             </thead>
-
-            <tbody>
-                <tr>
-                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="img/products/A-1Photos/Shirt-striped.jpg" alt=""></td>
-                    <td>Shirt-striped</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1" name="" id=""></td>
-                    <td>$118.19</td>
-                </tr>
-                <tr>
-                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="img/products/A-1Photos/Shirt_longsleave.jpg" alt=""></td>
-                    <td>Shirt-longsleave</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1" name="" id=""></td>
-                    <td>$118.19</td>
-                </tr>
-                <tr>
-                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="img/products/A-1Photos/shorts-trousers.jfif" alt=""></td>
-                    <td>Shorts-trousers</td>
-                    <td>$118.19</td>
-                    <td><input type="number" value="1" name="" id=""></td>
-                    <td>$118.19</td>
-                </tr>
-            </tbody>
+              <tbody id="itemList"></tbody>
         </table>
     </section>
 
@@ -95,7 +69,7 @@
             <table>
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td>$ 335</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -103,10 +77,10 @@
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>$ 335</strong></td>
+                    <td ><strong id="totalPrice"></strong></td>
                 </tr>
             </table>
-            <button class="normal">Proceed to checkout</button>
+            <button onclick="pay()" class="normal">Proceed to checkout</button>
         </div>
     </section>
     <!-- <div id="cartItems">
@@ -164,38 +138,9 @@
 
 
     <script src="css/script.js"></script>
-    <script>
-        var isLoggedIn = localStorage.getItem("isLoggedIn");
+    <script src="js/pay.js"></script>
      
-     function pay() {
-       if (isLoggedIn === "true") {
-         // Nếu đã đăng nhập, hiển thị thông báo thành công
-         alert("Payment successful!");
-         localStorage.removeItem("cartItems");
-     
-         // Xoá các phần tử trong danh sách hiển thị giỏ hàng
-         var itemList = document.getElementById("itemList");
-         itemList.innerHTML = "";
-       } else {
-         // Nếu chưa đăng nhập, yêu cầu đăng nhập
-         alert("Please login to proceed with payment.");
-       }
-     }
-     
-     // Lấy thông tin sản phẩm từ Local Storage và hiển thị nếu có
-     var cartItems = localStorage.getItem("cartItems");
-     var items = cartItems ? JSON.parse(cartItems) : [];
-     
-     items.forEach(function(item) {
-       var itemList = document.getElementById("itemList");
-     
-       // Hiển thị thông tin sản phẩm trong giỏ hàng
-       var listItem = document.createElement("li");
-       listItem.innerHTML = "<b>Name:</b> " + item.productName + ", <b>Price:</b> $" + item.price + ", <b>Quantity:</b> " + item.quantity;
-       itemList.appendChild(listItem);
-     });
-     
-       </script>
+       
 </body>
 
 </html>

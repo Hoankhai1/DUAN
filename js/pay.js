@@ -1,109 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart</title>
-  <style>
-  /* CSS cho danh sách sản phẩm */
-  #itemList {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  #itemList li {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-  }
-
-  #itemList li b {
-    font-weight: bold;
-  }
-
-  /* CSS cho nút Pay */
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #45a049;
-  }
-  /* CSS cho bảng sản phẩm */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-
-  th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-  }
-
-  /* CSS cho nút Pay */
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #45a049;
-  }
-  .quantity-controls input {
-    width: 50px;
-    height: 30px;
-    text-align: center;
-    border: none;
-    background-color: #f5f5f5;
-  }
-  .product-image {
-    width: 50px;
-    height: 50px;
-  }
-</style>
-
-
-</head>
-<body>
-  <h1>Cart</h1>
-
-  <!-- <div id="cartItems"> -->
-    <table>
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="itemList"></tbody>
-    </table>
-    <p id="totalPrice"></p>
-  </div>
-
-  <button onclick="pay()">Pay</button>
-
-  <script>
-   var isLoggedIn = localStorage.getItem("isLoggedIn");
+var isLoggedIn = localStorage.getItem("isLoggedIn");
 
 function pay() {
   if (isLoggedIn === "true") {
@@ -158,19 +53,19 @@ function renderItems() {
     var row = itemList.insertRow();
 
     // Tạo các ô trong hàng
+    var actionCell = row.insertCell();
     var imageCell = row.insertCell();
     var nameCell = row.insertCell();
     var priceCell = row.insertCell();
     var quantityCell = row.insertCell();
     var totalCell = row.insertCell();
-    var actionCell = row.insertCell();
+    
     var quantityInput = document.createElement("input"); // Tạo input cho số lượng
     var removeButton = document.createElement("button"); // Nút xóa sản phẩm
 
     // Thiết lập nội dung cho các ô
     var imageElement = document.createElement("img");
     imageElement.src = item.image;
-    imageElement.alt = item.productName;
     imageElement.classList.add("product-image");
     imageCell.appendChild(imageElement);
     nameCell.innerHTML = item.productName;
@@ -183,11 +78,11 @@ function renderItems() {
     quantityInput.addEventListener("change", function() {
       item.quantity = parseInt(quantityInput.value); // Cập nhật giá trị số lượng trong danh sách sản phẩm
       totalCell.innerHTML = "$" + (item.price * item.quantity); // Cập nhật giá tổng của sản phẩm
-      document.getElementById("totalPrice").innerHTML = "Total: $" + updateTotalPrice(); // Cập nhật tổng giá trị của tất cả sản phẩm
+      document.getElementById("totalPrice").innerHTML = "$ " + updateTotalPrice(); // Cập nhật tổng giá trị của tất cả sản phẩm
     });
 
     // Thiết lập thuộc tính và sự kiện cho nút xóa sản phẩm
-    removeButton.innerHTML = "Remove";
+    removeButton.innerHTML = "X";
     removeButton.classList.add("remove-button");
     removeButton.addEventListener("click", function() {
       removeItem(index); // Gọi hàm xóa sản phẩm khi người dùng nhấn nút "Remove"
@@ -208,11 +103,5 @@ function renderItems() {
 renderItems();
 
 // Hiển thị tổng giá trị của tất cả sản phẩm
-document.getElementById("totalPrice").innerHTML = "Total: $" + updateTotalPrice();
+document.getElementById("totalPrice").innerHTML = "$ " + updateTotalPrice() ;
 
-
-
-
-  </script>
-</body>
-</html>

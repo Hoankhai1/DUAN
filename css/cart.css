@@ -1,0 +1,10 @@
+
+    .remove-button {
+        background: none;
+        color: rgb(132, 147, 245);
+        font-size: 13px;
+        cursor: pointer;
+        border-radius: 50%; /* Thiết lập border bo tròn */
+        padding: 3px 5px;
+        border-color: rgb(132, 147, 245); ;
+      }
