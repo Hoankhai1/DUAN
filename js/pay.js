@@ -19,6 +19,7 @@ function pay() {
 var cartItems = localStorage.getItem("cartItems");
 var items = cartItems ? JSON.parse(cartItems) : [];
 
+
 function updateTotalPrice() {
   var totalPrice = 0;
 
@@ -49,6 +50,7 @@ function renderItems() {
     var imageCell = row.insertCell();
     var nameCell = row.insertCell();
     var priceCell = row.insertCell();
+    var sizeCell = row.insertCell();
     var quantityCell = row.insertCell();
     var totalCell = row.insertCell();
     
@@ -56,17 +58,22 @@ function renderItems() {
     var removeButton = document.createElement("button"); // Nút xóa sản phẩm
 
     // Thiết lập nội dung cho các ô
+    nameCell.style.fontSize = "12px";
+/* Thêm các thuộc tính CSS khác tùy theo nhu cầu */
+
+    nameCell.classList.add("product-name");
     var imageElement = document.createElement("img");
     imageElement.src = item.image;
     imageElement.classList.add("product-image");
     imageCell.appendChild(imageElement);
     nameCell.innerHTML = item.productName;
     priceCell.innerHTML = "$" + item.price;
-
+    sizeCell.textContent = item.size
     // Thiết lập thuộc tính cho input số lượng
     quantityInput.type = "number";
     quantityInput.value = item.quantity;
     quantityInput.min = 1; // Giá trị tối thiểu là 1
+    quantityInput.classList.add("quantity-input");
     quantityInput.addEventListener("change", function() {
       item.quantity = parseInt(quantityInput.value); // Cập nhật giá trị số lượng trong danh sách sản phẩm
       totalCell.innerHTML = "$" + (item.price * item.quantity); // Cập nhật giá tổng của sản phẩm
@@ -96,4 +103,6 @@ renderItems();
 
 // Hiển thị tổng giá trị của tất cả sản phẩm
 document.getElementById("totalPrice").innerHTML = "$ " + updateTotalPrice() ;
+
+
 

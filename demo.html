@@ -1,218 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart</title>
-  <style>
-  /* CSS cho danh sách sản phẩm */
-  #itemList {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  #itemList li {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-  }
-
-  #itemList li b {
-    font-weight: bold;
-  }
-
-  /* CSS cho nút Pay */
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #45a049;
-  }
-  /* CSS cho bảng sản phẩm */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-
-  th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-  }
-
-  /* CSS cho nút Pay */
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background-color: #45a049;
-  }
-  .quantity-controls input {
-    width: 50px;
-    height: 30px;
-    text-align: center;
-    border: none;
-    background-color: #f5f5f5;
-  }
-  .product-image {
-    width: 50px;
-    height: 50px;
-  }
-</style>
-
-
-</head>
-<body>
-  <h1>Cart</h1>
-
-  <!-- <div id="cartItems"> -->
-    <table>
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="itemList"></tbody>
-    </table>
-    <p id="totalPrice"></p>
-  </div>
-
-  <button onclick="pay()">Pay</button>
-
-  <script>
-   var isLoggedIn = localStorage.getItem("isLoggedIn");
-
-function pay() {
-  if (isLoggedIn === "true") {
-    // Nếu đã đăng nhập, hiển thị thông báo thành công
-    alert("Payment successful!");
-    localStorage.removeItem("cartItems");
-
-    // Xoá các phần tử trong danh sách hiển thị giỏ hàng
-    var itemList = document.getElementById("itemList");
-    itemList.innerHTML = "";
-  } else {
-    // Nếu chưa đăng nhập, yêu cầu đăng nhập
-    alert("Please login to proceed with payment.");
-  }
-}
-
-// Lấy thông tin sản phẩm từ Local Storage và hiển thị nếu có
+<div id="cartItemList"></div>
+<script>
+ // Lấy thông tin sản phẩm từ Local Storage và hiển thị nếu có
 var cartItems = localStorage.getItem("cartItems");
 var items = cartItems ? JSON.parse(cartItems) : [];
 
-// items.forEach(function(item) {
-//   var itemList = document.getElementById("itemList");
+var cartItemList = document.getElementById("cartItemList");
 
-//   // Hiển thị thông tin sản phẩm trong giỏ hàng
-//   var listItem = document.createElement("li");
-//   listItem.innerHTML = "<b>Name:</b> " + item.productName + ", <b>Price:</b> $" + item.price + ", <b>Quantity:</b> " + item.quantity;
-//   itemList.appendChild(listItem);
-// });
-function updateTotalPrice() {
-  var totalPrice = 0;
+items.forEach(function (item) {
+  var listItem = document.createElement("div");
+  listItem.classList.add("cart-item");
 
-  items.forEach(function(item) {
-    var itemTotal = item.price * item.quantity;
-    totalPrice += itemTotal;
-  });
+  // Tạo phần tử hình ảnh và thêm vào listItem
+  var image = document.createElement("img");
+  image.src = item.image;
+  image.alt = "Product Image";
+  image.style.maxWidth = "100px";
+  image.classList.add("cart-item-image");
+  listItem.appendChild(image);
 
-  return totalPrice;
-}
+  // Tạo phần tử chi tiết sản phẩm và thêm vào listItem
+  var details = document.createElement("div");
+  details.classList.add("cart-item-details");
+  details.innerHTML =
+    "<b>Name:</b> " +
+    item.productName +
+    ", <b>Price:</b> $" +
+    item.price +
+    ", <b>Quantity:</b> " +
+    item.quantity +
+    ", <b>Size:</b> " +
+    item.size;
+  listItem.appendChild(details);
 
-function removeItem(index) {
-  items.splice(index, 1); // Xóa sản phẩm khỏi danh sách sản phẩm
-  renderItems(); // Render lại danh sách sản phẩm
-  document.getElementById("totalPrice").innerHTML = "Total: $" + updateTotalPrice(); // Cập nhật tổng giá trị của tất cả sản phẩm
-}
-
-function renderItems() {
-  var itemList = document.getElementById("itemList");
-  itemList.innerHTML = ""; // Xóa nội dung hiện tại của danh sách
-
-  items.forEach(function(item, index) {
-    // Tạo một hàng mới trong bảng
-    var row = itemList.insertRow();
-
-    // Tạo các ô trong hàng
-    var imageCell = row.insertCell();
-    var nameCell = row.insertCell();
-    var priceCell = row.insertCell();
-    var quantityCell = row.insertCell();
-    var totalCell = row.insertCell();
-    var actionCell = row.insertCell();
-    var quantityInput = document.createElement("input"); // Tạo input cho số lượng
-    var removeButton = document.createElement("button"); // Nút xóa sản phẩm
-
-    // Thiết lập nội dung cho các ô
-    var imageElement = document.createElement("img");
-    imageElement.src = item.image;
-    imageElement.alt = item.productName;
-    imageElement.classList.add("product-image");
-    imageCell.appendChild(imageElement);
-    nameCell.innerHTML = item.productName;
-    priceCell.innerHTML = "$" + item.price;
-
-    // Thiết lập thuộc tính cho input số lượng
-    quantityInput.type = "number";
-    quantityInput.value = item.quantity;
-    quantityInput.min = 1; // Giá trị tối thiểu là 1
-    quantityInput.addEventListener("change", function() {
-      item.quantity = parseInt(quantityInput.value); // Cập nhật giá trị số lượng trong danh sách sản phẩm
-      totalCell.innerHTML = "$" + (item.price * item.quantity); // Cập nhật giá tổng của sản phẩm
-      document.getElementById("totalPrice").innerHTML = "Total: $" + updateTotalPrice(); // Cập nhật tổng giá trị của tất cả sản phẩm
-    });
-
-    // Thiết lập thuộc tính và sự kiện cho nút xóa sản phẩm
-    removeButton.innerHTML = "Remove";
-    removeButton.classList.add("remove-button");
-    removeButton.addEventListener("click", function() {
-      removeItem(index); // Gọi hàm xóa sản phẩm khi người dùng nhấn nút "Remove"
-    });
-
-    // Thêm nút xóa sản phẩm vào ô hành động
-    actionCell.appendChild(removeButton);
-
-    // Thêm input số lượng vào ô số lượng
-    quantityCell.appendChild(quantityInput);
-
-    // Thiết lập giá tổng ban đầu của sản phẩm
-    totalCell.innerHTML = "$" + (item.price * item.quantity);
-  });
-}
-
-// Hiển thị danh sách sản phẩm
-renderItems();
-
-// Hiển thị tổng giá trị của tất cả sản phẩm
-document.getElementById("totalPrice").innerHTML = "Total: $" + updateTotalPrice();
+  cartItemList.appendChild(listItem);
+});
 
 
-
-
-  </script>
-</body>
-</html>
+</script>
