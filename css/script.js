@@ -1,3 +1,20 @@
+const API = `db.json`;
+
+let callapi = (callback)=>{
+    fetch(API).then(res=> res.json()).then(callback)
+}
+
+
+let product = (data)=>{
+    console.log(data)
+}
+
+
+callapi(product)
+
+
+
+
 const bar = document.getElementById('bar');
 const close = document.getElementById('close');
 const nav = document.getElementById('navbar');
