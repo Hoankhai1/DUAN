@@ -19,14 +19,6 @@ function pay() {
 var cartItems = localStorage.getItem("cartItems");
 var items = cartItems ? JSON.parse(cartItems) : [];
 
-// items.forEach(function(item) {
-//   var itemList = document.getElementById("itemList");
-
-//   // Hiển thị thông tin sản phẩm trong giỏ hàng
-//   var listItem = document.createElement("li");
-//   listItem.innerHTML = "<b>Name:</b> " + item.productName + ", <b>Price:</b> $" + item.price + ", <b>Quantity:</b> " + item.quantity;
-//   itemList.appendChild(listItem);
-// });
 function updateTotalPrice() {
   var totalPrice = 0;
 
