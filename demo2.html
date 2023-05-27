@@ -1,107 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <style>
-    .rating {
-      unicode-bidi: bidi-override;
-      direction: rtl;
-      text-align: center;
-    }
-
-    .rating > span {
+    .color-option {
+      width: 30px;
+      height: 30px;
       display: inline-block;
-      position: relative;
-      width: 1.1em;
-      font-size: 24px;
-      color: #ccc;
-      cursor: pointer;
+      border-radius: 50%;
+      margin-right: 10px;
     }
-
-    .rating > span:hover:before,
-    .rating > span.checked:before,
-    .rating > span:hover svg,
-    .rating > span.checked svg {
-      content: "\2605";
-      position: absolute;
-      fill: gold;
+    
+    .color-code {
+      display: inline-block;
+      vertical-align: middle;
     }
-
-    .rating > input {
-      display: none;
-    }
-
-    .rating > span:before {
-      content: "\2606";
-      position: absolute;
-    }
-  </style>
+    </style>
 </head>
 <body>
-  <h2>Đánh giá sản phẩm</h2>
-
-  <div class="rating">
-    <input type="radio" id="star5" name="rating" value="5">
-    <label for="star5">&#9733;</label>
-    <input type="radio" id="star4" name="rating" value="4">
-    <label for="star4">&#9733;</label>
-    <input type="radio" id="star3" name="rating" value="3">
-    <label for="star3">&#9733;</label>
-    <input type="radio" id="star2" name="rating" value="2">
-    <label for="star2">&#9733;</label>
-    <input type="radio" id="star1" name="rating" value="1">
-    <label for="star1">&#9733;</label>
-  </div>
+  <div id="itemList"></div>
 
   <script>
-    const ratingStars = document.querySelectorAll('.rating input');
-
-    for (let i = 0; i < ratingStars.length; i++) {
-      ratingStars[i].addEventListener('change', function() {
-        // Xóa lớp CSS .checked của tất cả các sao
-        for (let j = 0; j < ratingStars.length; j++) {
-          ratingStars[j].parentNode.classList.remove('checked');
-        }
-
-        // Thêm lớp CSS .checked cho các sao đã chọn và các sao trước đó
-        const currentRating = parseInt(this.value);
-        for (let k = 0; k < currentRating; k++) {
-          ratingStars[k].parentNode.classList.add('checked');
-        }
-
-        console.log("Đánh giá: " + currentRating);
+    window.addEventListener('load', function () {
+      var cartItems = localStorage.getItem("cartItems");
+      var items = cartItems ? JSON.parse(cartItems) : [];
+    
+      var itemList = document.getElementById("itemList");
+      itemList.innerHTML = "";
+    
+      items.forEach(function (item) {
+        var listItem = document.createElement("div");
+        listItem.classList.add("cart-item");
+    
+        var colorDiv = document.createElement("div");
+        colorDiv.classList.add("color-option");
+        colorDiv.style.backgroundColor = item.color;
+        listItem.appendChild(colorDiv);
+    
+        var colorText = document.createElement("div");
+   
+        colorText.classList.add("color-code");
+        listItem.appendChild(colorText);
+    
+        itemList.appendChild(listItem);
       });
+    });
+</script>
 
-      ratingStars[i].addEventListener('mouseover', function() {
-        // Đổi màu các sao khi di chuột qua
-        for (let k = 0; k < ratingStars.length; k++) {
-          ratingStars[k].parentNode.classList.remove('hover');
-        }
 
-        const currentRating = parseInt(this.value);
-        for (let k = 0; k < currentRating; k++) {
-          ratingStars[k].parentNode.classList.add('hover');
-        }
-      });
-
-      ratingStars[i].addEventListener('mouseout', function() {
-        // Xóa màu các sao khi di chuột ra
-        for (let k = 0; k < ratingStars.length; k++) {
-          ratingStars[k].parentNode.classList.remove('hover');
-        }
-      });
-
-      ratingStars[i].addEventListener('click', function() {
-        // Thêm lớp CSS .clicked cho các sao đã được click
-        const currentRating = parseInt(this.value);
-        for (let k = 0; k < ratingStars.length; k++) {
-          if (k < currentRating) {
-            ratingStars[k].parentNode.classList.add('clicked');
-          } else {
-            ratingStars[k].parentNode.classList.remove('clicked');
-          }
-        }
-      });
-    }
-  </script>
 </body>
 </html>

@@ -1,39 +1,59 @@
-<div id="cartItemList"></div>
-<script>
- // Lấy thông tin sản phẩm từ Local Storage và hiển thị nếu có
-var cartItems = localStorage.getItem("cartItems");
-var items = cartItems ? JSON.parse(cartItems) : [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .color-option{
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+    }
 
-var cartItemList = document.getElementById("cartItemList");
+    .selected-color {
+      border: 5px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div class="color-option" style="background-color: #FF0000;" onclick="selectColor(this)"></div>
+  <div class="color-option" style="background-color: #00FF00;" onclick="selectColor(this)"></div>
+  <div class="color-option" style="background-color: #0000FF;" onclick="selectColor(this)"></div>
 
-items.forEach(function (item) {
-  var listItem = document.createElement("div");
-  listItem.classList.add("cart-item");
+  <button onclick="addToCart()">Add to Cart</button>
 
-  // Tạo phần tử hình ảnh và thêm vào listItem
-  var image = document.createElement("img");
-  image.src = item.image;
-  image.alt = "Product Image";
-  image.style.maxWidth = "100px";
-  image.classList.add("cart-item-image");
-  listItem.appendChild(image);
+  <script>
+    var selectedColorOption = null;
 
-  // Tạo phần tử chi tiết sản phẩm và thêm vào listItem
-  var details = document.createElement("div");
-  details.classList.add("cart-item-details");
-  details.innerHTML =
-    "<b>Name:</b> " +
-    item.productName +
-    ", <b>Price:</b> $" +
-    item.price +
-    ", <b>Quantity:</b> " +
-    item.quantity +
-    ", <b>Size:</b> " +
-    item.size;
-  listItem.appendChild(details);
+    function selectColor(colorOption) {
+      if (selectedColorOption) {
+        selectedColorOption.classList.remove("selected-color");
+      }
 
-  cartItemList.appendChild(listItem);
-});
+      selectedColorOption = colorOption;
+      selectedColorOption.classList.add("selected-color");
+    }
 
+    function addToCart() {
+      if (selectedColorOption) {
+        var selectedColor = selectedColorOption.style.backgroundColor;
+        var cartItems = localStorage.getItem("cartItems");
+        var items = cartItems ? JSON.parse(cartItems) : [];
 
-</script>
+        items.push({
+          color: selectedColor
+        });
+
+        localStorage.setItem("cartItems", JSON.stringify(items));
+
+        // Chuyển hướng đến trang cart
+        window.location.href = "demo2.html";
+      } else {
+        console.log("Please select a color.");
+      }
+    }
+  </script>
+</body>
+</html>

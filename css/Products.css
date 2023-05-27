@@ -22,3 +22,8 @@
      right: 35px;
      top: -10px;
  }
+ .color-option{
+    width: 200px;
+    height: 200px;
+    display: inline-flex;
+  }

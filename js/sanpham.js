@@ -18,7 +18,7 @@ function addToCart(button) {
   var quantity = parseInt(document.querySelector('input[type="number"]').value);
   var size = document.getElementById("size").value;
   var image = button.getAttribute("product-image");
-
+  
   var cartItems = localStorage.getItem("cartItems");
   var items = cartItems ? JSON.parse(cartItems) : [];
 
