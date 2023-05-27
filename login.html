@@ -23,6 +23,7 @@
         .a{
             text-align: center;
             margin-bottom: 20px;
+        
                         
         }
         .b{
@@ -31,7 +32,7 @@
         }
         .c{
             text-align: center;
-            padding-right: 30px;
+            padding-right: -30px;
             color: #555555;
         }
         .d{
@@ -42,12 +43,24 @@
             border-radius: 7px;
             background-color: #013F70 ;
             color: white;
-            padding: 0 20px;
+            /* padding: 0 20px; */
+            font-size: 16px ;
+            padding-top: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 8px;
          
         }
         .e{
             margin-top: 40px;
         }
+        .a input {
+            padding: 9px;
+        }
+        .b input {
+            padding: 9px;
+        }
+       
       
     </style>
 </head>
@@ -174,9 +187,10 @@
             if (user) {
                 alert("Đăng nhập thành công!");
                 localStorage.setItem('isLoggedIn', true);
+                localStorage.setItem('username', email )
 
                 // Thực hiện các hành động sau khi đăng nhập thành công, ví dụ: chuyển hướng đến trang khác
-                window.location.href = "demo.html";
+                window.location.href = "index.html";
             } else {
                 alert("Email hoặc mật khẩu không chính xác. Vui lòng thử lại!");
             }
