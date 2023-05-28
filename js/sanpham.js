@@ -18,7 +18,7 @@ function addToCart(button) {
   var quantity = parseInt(document.querySelector('input[type="number"]').value);
   var size = document.getElementById("size").value;
   var image = button.getAttribute("product-image");
-  
+  var selectedColor = document.querySelector(".color-option.selected").style.backgroundColor;
   var cartItems = localStorage.getItem("cartItems");
   var items = cartItems ? JSON.parse(cartItems) : [];
 
@@ -34,7 +34,8 @@ function addToCart(button) {
       price: price,
       quantity: quantity,
       size: size,
-      image: image
+      image: image,
+      color: selectedColor
     });
   }
 
@@ -56,7 +57,7 @@ function addToCart(button) {
 
     var details = document.createElement("div");
     details.classList.add("cart-item-details");
-    details.innerHTML = "<b>Name:</b> " + item.productName + ", <b>Price:</b> $" + item.price + ", <b>Quantity:</b> " + item.quantity + ", <b>Size:</b> " + item.size;;
+    details.innerHTML = "<b>Name:</b> " + item.productName + ", <b>Price:</b> $" + item.price + ", <b>Quantity:</b> " + item.quantity + ", <b>Size:</b> " + item.size + ", <b>Color:</b> <span class='color-dot' style='background-color:" + item.color + ";'></span>";
     listItem.appendChild(details);
 
     itemList.appendChild(listItem);
@@ -70,6 +71,13 @@ function addToCart(button) {
   countItemElement.innerText = totalQuantity;
 }
 
+function selectColor(colorOption) {
+  var colorOptions = document.querySelectorAll(".color-option");
+  colorOptions.forEach(function (option) {
+    option.classList.remove("selected");
+  });
+  colorOption.classList.add("selected");
+}
 document.getElementById("decrease").addEventListener("click", function () {
   const quantityInput = document.getElementById("quantity");
   let quantity = parseInt(quantityInput.value);

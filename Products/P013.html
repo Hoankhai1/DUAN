@@ -10,31 +10,34 @@
     <link rel="stylesheet" href="../css/Products.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-
+<style>
+    
+</style>
 <body>
     <section id="header">
-        <a href="#"><img src="img/logoA1.png" class="logo" alt=""></a>
+        <a href="#"><img src="../img/logoA1.png" class="logo" alt=""></a>
 
         <div>
             <ul id="navbar">
                 <li><a href="../index.html">Home</a></li>
                 <li><a class="active" href="../shop.html">Shop</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="../cart.html"><i class="far fa-shopping-bag"></i></a></li>
                 <li><div id="countitem"></div></li>
+
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
         <div id="mobile">
-            <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+            <a href="../cart.html"><i class="far fa-shopping-bag"></i></a>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
 
     <section id="prodetails" class="section-p1">
         <div class="single-pro-image">
-            <img src="../img/products/a1-uniform/P009-Shorts2.png" width="100%" id="MainImg" alt="">
+            <img src="../img/products/a1-uniform/P0013-Skirt1.png" width="100%" id="MainImg" alt="">
 
             <div class="small-img-group">
                 <div class="small-img-col">
@@ -54,27 +57,32 @@
 
         <div class="single-pro-details">
             <h6>Home / T-Shirt</h6>
-            <h4>Active Shorts</h4>
-            <h2>399,000 VND</h2>
+            <h4>Checked Skirt with Adjustable Waistband</h4>
+            <h2>299,000 VND</h2>
             <select id="size">
-                <option>Select Size</option>
-                <option value="4-5Y(110)">4-5Y(110)</option>
-                <option value="6-7Y(120)">6-7Y(120)</option>
-                <option value="10-11Y(140)">10-11Y(140)</option>
-                <option value="12-13Y(150)">12-13Y(150)</option>
-                <option value="14Y(160)">14Y(160)</option>
-               </select>    
-               <div class="div-color">
-                <div class="color-option" style="background-color: #1b1b1b;" onclick="selectColor(this)"></div>
-                <div class="color-option" style="background-color: #b8b894;" onclick="selectColor(this)"></div>
-                </div>          
+              <option>Select Size</option>
+              <option value="4-5Y(110)">4-5Y(110)</option>
+              <option value="6-7Y(120)">6-7Y(120)</option>
+              <option value="10-11Y(140)">10-11Y(140)</option>
+              <option value="12-13Y(150)">12-13Y(150)</option>
+              <option value="14Y(160)">14Y(160)</option>
+             </select>      
+             <div class="div-color">
+                <div class="color-option" style="background-color: #008000;" onclick="selectColor(this)"></div>
+                <div class="color-option" style="background-color: #005EB8;" onclick="selectColor(this)"></div>
+   
+            </div>       
             <input type="number" value="1">
             <div class="cart">
-                <button class="normal" product-image="http://127.0.0.1:5501/img/products/a1-uniform/P009-Shorts2.png" product-name="Active Shorts" product-price="399,000 VND"
+                <button class="normal" product-image="http://127.0.0.1:5501/img/products/a1-uniform/P0013-Skirt1.png" product-name="Checked Skirt with Adjustable Waistband" product-price="299,000 VND"
                 product-quantity="1" onclick="addToCart(this)" id="save" onclick="submit()">Add To Cart</button>
             </div>
+            
             <div class="size">
                 <h3><button onclick="toggleImage()">Size chart</button></h3>
+            </div>
+            <div id="myModal" class="modal" onclick="toggleImage()" style="display:none">
+                <img id="myImage" class="modal-content" src="../img/sizechart.jpg">
             </div>
           
     </section>
@@ -150,9 +158,21 @@
 
         </div>
     </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal"><a href="../login.html">Sign Up</a></button>
+        </div>
+    </section>
+
     <footer class="section-p1">
         <div class="col">
-            <img class="logo" src="img/logoA1.png" alt="">
+            <img class="logo" src="../img/logoA1.png" alt="">
             <h4>Contact</h4>
             <p><strong>Address: </strong> 562 CMT8 Road, Street 32, HCM City</p>
             <p><strong>Phone:</strong> (+84) 09 9999 999 /(+84) 09 2345 6789</p>
@@ -176,10 +196,8 @@
         <div class="col">
             <h4>My Account</h4>
             <a href="../login.html">Sign In</a>
-            <a href="#">View Cart</a>
-            <a href="#">My Wishlist</a>
-            <a href="#">Track My Order</a>
-            <a href="#">Help</a>
+            <a href="../cart.html">View Cart</a>
+            <a href="../contact.html">Help</a>
         </div>
 
         <div class="col install">
@@ -211,8 +229,6 @@
             MainImg.src = smallimg[3].src;
         }
     </script>
-
-
     <script src="../css/script.js"></script>
     <script src="../js/sanpham.js"></script>
 </body>
