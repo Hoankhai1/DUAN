@@ -1,56 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Spartan', sans-serif;
-}
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 80px;
-    background: #E3E6F3;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-    z-index: 999;
-    position: sticky;
-    top: 0;
-    left: 0;
-    }
-    #navbar{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #navbar li {
-        list-style: none;
-        padding: 0 20px;
-        position: relative;
-    }
-    
-    #navbar li a{
-        text-decoration: none;
-        font-size: 16px;
-        font-weight: 600;
-        color: #1a1a1a;
-        transition: 0.3s ease;
-    }
-    
-    #navbar li a:hover,
-    #navbar li a:active{
-        color: #088178;
-    }
-    
-    #navbar li a.active::after,
-    #navbar li a:hover::after{
-        content: "";
-        width: 30%;
-        height: 2px;
-        background: #088178;
-        position: absolute;
-        bottom: -4px;
-        left: 20px;
-    }
+
 h2 {
   margin-top: 50px;
   margin-left: 20px;
@@ -58,7 +6,7 @@ h2 {
 .a {
   margin-left: 20px;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .b {
@@ -79,7 +27,6 @@ p {
 }
 .container{
   height: 80vh;
-  
 }
 
 footer {
@@ -111,7 +58,7 @@ footer {
   height: 400px;
   background: white;
   position: fixed;
-  top: 60px;
+  top: 120px;
   right: 50px;
   border: 1px solid #333;
   padding: 45px 35px;
@@ -122,7 +69,7 @@ footer {
   height: 400px;
   background: white;
   position: fixed;
-  top: 150px;
+  top: 120px;
   right: 50px;
   border: 1px solid #333;
   padding: 45px 35px;
@@ -158,7 +105,7 @@ hr{
   justify-content: space-between;}
 
   .text4 button{
-    background-color: #013F70 ;
+    background-color: #088178;
     border-radius: 7px;
     color: white;
     width: 280px;

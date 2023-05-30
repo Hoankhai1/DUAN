@@ -505,6 +505,7 @@ body {
 }
 
 footer {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -567,6 +568,10 @@ footer a:hover {
     color: #088178;
 }
 
+footer.uu{
+    position: unset;
+    transform: unset;
+}
 
 /* Shop Page */
 
