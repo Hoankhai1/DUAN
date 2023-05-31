@@ -278,29 +278,29 @@
         <h2 style="margin: 0 0 20px 0;">Order Summary</h2>
         <div class="text1">
           <p><b>Total</b> </p>
-          <p> {added prices}</p>
+          <p  id="totalPrice" ></p>
         </div>
         <div class="text2">
           <p style="margin-top: 15px; font-size: 15px;"><b>Shipping</b></p>
-          <p style="margin-top: 15px; font-size: 15px;">{prices per district}</p>
+          <p style="margin-top: 15px; font-size: 15px;" id="shipper">$ 30 </p>
         </div>
         <hr>
         <div class="text3">
           <p style="margin-top: 15px; font-size: 15px;"> <b>TOTAL: </b></p>
-          <P style="margin-top: 15px; font-size: 15px;">{added prices}</P>
+          <P style="margin-top: 15px; font-size: 15px;" id="totalWithShipper"  ></P>
         </div>
         <div class="text4">
           <button type="submit">Place Order</button>
         </div>
         <div class="text5">
-          <a href="">Continue shopping</a>
+          <a href="shop.html">Continue shopping</a>
         </div>
       </div>
       <div class="k">
         <h2 style="margin: 0 0 20px 0;">Order Summary</h2>
         <div class="text1">
           <p><b>Total</b> </p>
-          <p> {added prices}</p>
+          <p id="totalPrice2" > </p>
         </div>
         <div class="text2">
           <p style="margin-top: 15px; font-size: 15px;"><b>Shipping</b></p>
@@ -309,13 +309,13 @@
         <hr>
         <div class="text3">
           <p style="margin-top: 15px; font-size: 15px;"> <b>TOTAL: </b></p>
-          <P style="margin-top: 15px; font-size: 15px;">{added prices}</P>
+          <P style="margin-top: 15px; font-size: 15px;" id="totalPrice3" ></P>
         </div>
         <div class="text4">
-          <button type="submit">Place Order</button>
+          <button onclick="pay()" class="normal">Place Order</button>
         </div>
         <div class="text5">
-          <a href="">Continue shopping</a>
+          <a href="shop.html">Continue shopping</a>
         </div>
       </div>
     </div>
@@ -387,7 +387,8 @@
         <p style="text-align: center;">&copy;A-1 Uniform 2023 All Rights Reserved</p>
     </div>
 
-  
+
+
 
     <script>
       let a = document.querySelector('.text6')
@@ -416,5 +417,7 @@
         o.style.display = "none";
       });
     </script>
+    <script src="js/total.js"></script>
+    <script src="js/pay.js"></script>
   </body>
 </html>

@@ -18,42 +18,13 @@
   </style>
 </head>
 <body>
-  <div class="color-option" style="background-color: #FF0000;" onclick="selectColor(this)"></div>
-  <div class="color-option" style="background-color: #00FF00;" onclick="selectColor(this)"></div>
-  <div class="color-option" style="background-color: #0000FF;" onclick="selectColor(this)"></div>
-
   <button onclick="addToCart()">Add to Cart</button>
-
-  <script>
-    var selectedColorOption = null;
-
-    function selectColor(colorOption) {
-      if (selectedColorOption) {
-        selectedColorOption.classList.remove("selected-color");
-      }
-
-      selectedColorOption = colorOption;
-      selectedColorOption.classList.add("selected-color");
-    }
-
-    function addToCart() {
-      if (selectedColorOption) {
-        var selectedColor = selectedColorOption.style.backgroundColor;
-        var cartItems = localStorage.getItem("cartItems");
-        var items = cartItems ? JSON.parse(cartItems) : [];
-
-        items.push({
-          color: selectedColor
-        });
-
-        localStorage.setItem("cartItems", JSON.stringify(items));
-
-        // Chuyển hướng đến trang cart
-        window.location.href = "demo2.html";
-      } else {
-        console.log("Please select a color.");
-      }
-    }
+  <p  id="totalPrice1"></p>
+  <p  id="totalPrice2"></p>
+  <p  id="totalPrice3"> </p>
+  <script src="js/total.js">
+   
   </script>
+  <script src="js/pay.js"></script>
 </body>
 </html>

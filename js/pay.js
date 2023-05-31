@@ -19,7 +19,6 @@ function pay() {
 var cartItems = localStorage.getItem("cartItems");
 var items = cartItems ? JSON.parse(cartItems) : [];
 
-
 function updateTotalPrice() {
   var totalPrice = 0;
 
@@ -89,6 +88,10 @@ function renderItems() {
     quantityInput.addEventListener("change", function () {
       item.quantity = parseInt(quantityInput.value); // Cập nhật giá trị số lượng trong danh sách sản phẩm
       totalCell.innerHTML = "$" + (item.price * item.quantity); // Cập nhật giá tổng của sản phẩm
+
+      // Lưu số lượng mới và giá vào Local Storage
+      localStorage.setItem("cartItems", JSON.stringify(items));
+
       document.getElementById("totalPrice").innerHTML = "$ " + updateTotalPrice(); // Cập nhật tổng giá trị của tất cả sản phẩm
     });
 
@@ -116,6 +119,11 @@ renderItems();
 
 // Hiển thị tổng giá trị của tất cả sản phẩm
 document.getElementById("totalPrice").innerHTML = "$ " + updateTotalPrice();
+function getCart() {
+  var cart = localStorage.getItem('cart');
+  return cart ? JSON.parse(cart) : [];
+}
 
 
-
+var totalPrice = updateTotalPrice() ;
+  localStorage.setItem("totalPrice", totalPrice);
