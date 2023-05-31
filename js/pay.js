@@ -127,3 +127,12 @@ function getCart() {
 
 var totalPrice = updateTotalPrice() ;
   localStorage.setItem("totalPrice", totalPrice);
+
+
+let sos = document.querySelector('#sos')
+sos.addEventListener('click',()=>{
+  window.location.href='trangmuasam2.html'
+})
+
+
+

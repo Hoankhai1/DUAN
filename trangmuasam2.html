@@ -35,7 +35,7 @@
 
       .b {
         margin-left: 20px;
-        display: none;
+        /* display: none; */
       }
       /* .active {
       } */
@@ -78,7 +78,7 @@
         margin-left: 20px;
       
       }
-      .k{
+      /* .k{
         width: 350px;
         height: 400px;
         display: none;
@@ -86,7 +86,7 @@
         border: 1px solid #333;
         padding: 45px 35px;
         box-shadow: 0 0 15px rgba(0, 0, 0,.4);
-      }
+      } */
       .text7{
         width: 350px;
         height: 400px;
@@ -94,7 +94,7 @@
         border: 1px solid #333;
         padding: 45px 35px;
         box-shadow: 0 0 15px rgba(0, 0, 0,.4);
-        display: none;
+        /* display: none; */
       }
       
       .q{
@@ -150,12 +150,13 @@
         font-size: 15px; 
           
         }
-        .text9{
+        /* .text9{
           display: none;
-        }
-        .text7,.k{
+        } */
+        .text7{
           margin: 50px 50px 0 0;
         }
+        
     </style>
   </head>
   <body>
@@ -180,13 +181,13 @@
     
     <div id="container" style="height: 650px; display: flex; justify-content: space-between;">
       <div>
-        <h2>Shipping Method</h2>
+        <h2>Shipping</h2>
 
         <div class="a">
-          <input type="radio" id="gen" name="gen" value="male" />
-          <label for="gen">Pick up at store</label><br />
+          <!-- <input type="radio" id="gen" name="gen" value="male" />
+          <label for="gen">Pick up at store</label><br /> -->
   
-          <input type="radio" id="gen1" name="gen" value="female" />
+          <!-- <input type="radio" id="gen1" name="gen" value="female" /> -->
           <label for="gen1">Shipping</label><br />
         </div>
   
@@ -255,7 +256,7 @@
             placeholder="Phone Number"
             /><br />
         </form>
-        <div class="text9">
+        <!-- <div class="text9">
         <form class="c">
           <select name="" id="district" value="District">
             <option value="">Select the store to pickup</option>
@@ -271,7 +272,7 @@
           <p>{District}</p>
           <p>{City}</p>
         </div>
-      </div>
+      </div> -->
       </div>
     <div class="" >
       <div class="text7">
@@ -289,14 +290,14 @@
           <p style="margin-top: 15px; font-size: 15px;"> <b>TOTAL: </b></p>
           <P style="margin-top: 15px; font-size: 15px;" id="totalWithShipper"  ></P>
         </div>
-        <div class="text4">
-          <button type="submit">Place Order</button>
+        <div class="text4" >
+          <button id="dk" type="submit">Place Order</button>
         </div>
         <div class="text5">
           <a href="shop.html">Continue shopping</a>
         </div>
       </div>
-      <div class="k">
+      <!-- <div class="k">
         <h2 style="margin: 0 0 20px 0;">Order Summary</h2>
         <div class="text1">
           <p><b>Total</b> </p>
@@ -317,7 +318,7 @@
         <div class="text5">
           <a href="shop.html">Continue shopping</a>
         </div>
-      </div>
+      </div> -->
     </div>
     </div>
     
@@ -391,31 +392,36 @@
 
 
     <script>
-      let a = document.querySelector('.text6')
-      let i = document.querySelector('.text9')
-      let b = document.querySelector(".b");
-      let t = document.querySelector('.text7')
-      let o = document.querySelector(".k");
-      let c = document.querySelector(".c");
-      let e = document.querySelector("#gen");
-      let f = document.querySelector("#gen1");
+      // let a = document.querySelector('.text6')
+      // let i = document.querySelector('.text9')
+      // let b = document.querySelector(".b");
+      // let t = document.querySelector('.text7')
+      // let o = document.querySelector(".k");
+      // let c = document.querySelector(".c");
+      // let e = document.querySelector("#gen");
+      // let f = document.querySelector("#gen1");
 
-      e.addEventListener("click", () => {
-        b.style.display = "none";
-        c.style.display = "block";
-        t.style.display = "none";
-        o.style.display = "block";
-        a.style.display = "block";
-        i.style.display = "block";   //an vo la hien
+      // e.addEventListener("click", () => {
+      //   b.style.display = "none";
+      //   c.style.display = "block";
+      //   t.style.display = "none";
+      //   o.style.display = "block";
+      //   a.style.display = "block";
+      //   i.style.display = "block";   //an vo la hien
         
-      });
-      f.addEventListener("click", () => {
-        c.style.display = "none";
-        b.style.display = "block";
-        a.style.display = "none";
-        t.style.display = "block";
-        o.style.display = "none";
-      });
+      // });
+      // f.addEventListener("click", () => {
+        // c.style.display = "none";
+        // b.style.display = "block";
+        // a.style.display = "none";
+        // t.style.display = "block";
+        // o.style.display = "none";
+      // });
+      let dk = document.querySelector("#dk")
+      dk.addEventListener("click",()=>{
+        window.location.href="trangthanhtoan2.html"
+      })
+
     </script>
     <script src="js/total.js"></script>
     <script src="js/pay.js"></script>

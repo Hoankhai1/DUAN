@@ -13,6 +13,8 @@ window.addEventListener('load', function () {
 });
 
 function addToCart(button) {
+  
+
   var productName = button.getAttribute("product-name");
   var price = parseFloat(button.getAttribute("product-price"));
   var quantity = parseInt(document.querySelector('input[type="number"]').value);
@@ -69,6 +71,7 @@ function addToCart(button) {
 
   var countItemElement = document.getElementById("countitem");
   countItemElement.innerText = totalQuantity;
+ 
 }
 
 function selectColor(colorOption) {

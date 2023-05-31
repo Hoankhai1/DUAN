@@ -217,7 +217,7 @@
             <P style="margin-top: 15px; font-size: 15px;" id="totalWithShipper" ></P>
           </div>
           <div class="text4">
-            <button type="submit">Place Order</button>
+            <button  id="payhome">Place Order</button>
           </div>
           <div class="text5">
             <a href="shop.html">Continue shopping</a>
@@ -311,6 +311,13 @@
         i.style.display = "none";
 
       });
+
+      let payhome = document.querySelector("button#payhome")
+payhome.addEventListener("click", ()=>{
+  localStorage.removeItem('cartItems')
+  localStorage.removeItem('totalPrice')
+  window.location.href='index.html'
+})
     </script>
   </body>
 </html>
