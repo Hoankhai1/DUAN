@@ -23,7 +23,7 @@
 // // Hiển thị giá trị tổng giá trị
 // document.getElementById("totalPrice6").innerHTML = "$ " + totalPrice;
 
-var totalPrice = localStorage.getItem("totalPrice");
+var totalPrice = localStorage.getItem("giacuoi");
   document.getElementById("totalPrice").innerHTML = "$ " + totalPrice;
   
   var shipperPrice = 30;

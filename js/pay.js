@@ -1,14 +1,17 @@
 var isLoggedIn = localStorage.getItem("isLoggedIn");
 
 function pay() {
+  localStorage.setItem('giacuoi', updateTotalPrice())
   if (isLoggedIn === "true") {
     // Nếu đã đăng nhập, hiển thị thông báo thành công
     alert("Payment successful!");
     localStorage.removeItem("cartItems");
+    window.location.href = "http://127.0.0.1:5501/trangmuasam2.html";
+
 
     // Xoá các phần tử trong danh sách hiển thị giỏ hàng
     var itemList = document.getElementById("itemList");
-    itemList.innerHTML = "";
+    // itemList.innerHTML = "";
   } else {
     // Nếu chưa đăng nhập, yêu cầu đăng nhập
     alert("Please login to proceed with payment.");
@@ -38,7 +41,7 @@ function removeItem(index) {
 
 function renderItems() {
   var itemList = document.getElementById("itemList");
-  itemList.innerHTML = ""; // Xóa nội dung hiện tại của danh sách
+  // itemList.innerHTML = ""; // Xóa nội dung hiện tại của danh sách
 
   items.forEach(function (item, index) {
     // Tạo một hàng mới trong bảng
@@ -118,7 +121,7 @@ function renderItems() {
 renderItems();
 
 // Hiển thị tổng giá trị của tất cả sản phẩm
-document.getElementById("totalPrice").innerHTML = "$ " + updateTotalPrice();
+// document.getElementById("totalPrice").innerHTML = "$ " + updateTotalPrice();
 function getCart() {
   var cart = localStorage.getItem('cart');
   return cart ? JSON.parse(cart) : [];
@@ -129,10 +132,10 @@ var totalPrice = updateTotalPrice() ;
   localStorage.setItem("totalPrice", totalPrice);
 
 
-let sos = document.querySelector('#sos')
-sos.addEventListener('click',()=>{
-  window.location.href='trangmuasam2.html'
-})
+ 
 
-
-
+const update = localStorage.getItem('giacuoi')
+if(update){
+  const updateprice = document.querySelector('#totalPrice')
+  updateprice.innerHTML = '$' + update
+}
