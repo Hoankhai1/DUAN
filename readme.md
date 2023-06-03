@@ -15,7 +15,7 @@ Student1455776  Nguyễn anh tuấn
 
 Student1455754  Phù dũng khánh
 
-Student1449577 Nguyễn xuân thuấn anh
+Student1449577 Nguyễn Xuân Thuấn Anh
 
 ============================
 
