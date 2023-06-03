@@ -7,13 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A-1Uniform</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="../css/Products.css">
+    <link rel="stylesheet" href="../css/shop.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<style>
-    
-</style>
+
 <body>
+
     <section id="header">
         <a href="#"><img src="../img/logoA1.png" class="logo" alt=""></a>
 
@@ -24,8 +23,9 @@
                 <li><a href="../about.html">About</a></li>
                 <li><a href="../contact.html">Contact</a></li>
                 <li id="lg-bag"><a href="../cart.html"><i class="far fa-shopping-bag"></i></a></li>
-                <li><div id="countitem"></div></li>
-
+                <li>
+                    <div id="countitem"></div>
+                </li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
@@ -35,59 +35,32 @@
         </div>
     </section>
 
-    <section id="prodetails" class="section-p1">
-        <div class="single-pro-image">
-            <img src="../img/products/a1-uniform/P0022-Belt1.png" width="100%" id="MainImg" alt="">
-
-            <div class="small-img-group">
-                <div class="small-img-col">
-                    <img src="" width="100%" class="small-img" alt="">
-                </div>
-                <div class="small-img-col">
-                    <img src="img/products/f2.jpg" width="100%" class="small-img" alt="">
-                </div>
-                <div class="small-img-col">
-                    <img src="img/products/f3.jpg" width="100%" class="small-img" alt="">
-                </div>
-                <div class="small-img-col">
-                    <img src="img/products/f4.jpg" width="100%" class="small-img" alt="">
-                </div>
-            </div>
+    <section id="menu">
+        <div class="category">
+            <h3>FILTER PRODUCTS</h3>
+            <li><a  href="T-Shirt.html">T-Shirt</a></li>
+            <li><a href="Shirt.html">Shirt</a></li>
+            <li><a href="Skirt.html">Skirt</a></li>
+            <li><a href="Track-Paint.html">Track Paint</a></li>
+            <li><a href="Short.html">Short</a></li>
+            <li><a href="Sock.html">Sock</a></li>
+            <li><a href="Frock.html">Gown and uniforms set</a></li>
+            <li><a href="Tie.html">Tie</a></li>
+            <li><a href="Belts.html">Belts</a></li>
         </div>
-
-        <div class="single-pro-details">
-            <h6>Home / T-Shirt</h6>
-            <h4>Belt for boys</h4>
-            <h2>120,000 VND</h2>
-            <select id="size">
-              <option>Free size</option>
-             </select>      
-             <div class="div-color">
-                <div class="color-option" style="background-color: #1b1b1b;" onclick="selectColor(this)"></div>
-   
-            </div>       
-            <input type="number" value="1">
-            <div class="cart">
-                <button class="normal" product-image="http://127.0.0.1:5501/img/products/a1-uniform/P0022-Belt1.png" product-name="Belt for boys" product-price="120,000 VND"
-                product-quantity="1" onclick="addToCart(this)" id="save" onclick="submit()">Add To Cart</button>
-            </div>
-            
-            <div class="size">
-             <button onclick="showImage()">sizechart</button>
-    <div id="image-overlay" onclick="hideImage()">
-        <img src="../img/sizechart.jpg" alt="Hình ảnh">
-    </div>
+        <form class="d-flex" role="search">
+            <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
     </section>
 
     <section id="product1" class="section-p1">
-        <h2>Featured Products </h2>
-        <p>Uniforms Collection New Morden Design</p>
-        <div class="pro-container" >
-            <div class="pro" onclick="window.location.href='P002.html'" >
-                <img src="../img/products/a1-uniform/P002-Shirt2.png" alt="">
-                <div class="des">
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='../Products/P019.html';">
+                <img src="../img/products/a1-uniform/P0019-Socks1.png" alt="">
+                <div class="des ">
                     <span>adidas</span>
-                    <h5>Silky Cotton Short Leave Polo Shirt in Blocked Colors</h5>
+                    <h5>Comfy Regular Socks - Pack of 3</h5>
                     <div class="star">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -95,15 +68,15 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <h4>229,000 VND</h4>
+                    <h4>199,000 VND</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro" onclick="window.location.href='P003.html'">
-                <img src="../img/products/a1-uniform/P003-Shirt3.jpg" alt="">
-                <div class="des">
+            <div class="pro" onclick="window.location.href='../Products/P020.html';">
+                <img src="../img/products/a1-uniform/P0020-Socks2.png" alt="">
+                <div class="des ">
                     <span>adidas</span>
-                    <h5>Premium Linen Long Sleeve Shirt with Exquisite Details</h5>
+                    <h5>Designed Regular Socks - Pack of 3</h5>
                     <div class="star">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -111,15 +84,15 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <h4>269,000 VND</h4>
+                    <h4>219,000 VND</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro" onclick="window.location.href='P004.html'">
-                <img src="../img/products/a1-uniform/P004-TShirt1.png" alt="">
-                <div class="des">
+            <div class="pro" onclick="window.location.href='../Products/P021.html';">
+                <img src="../img/products/a1-uniform/P0021-Socks3.png" alt="">
+                <div class="des ">
                     <span>adidas</span>
-                    <h5>Stylish Cotton Crew Neck Short Leave T-Shirt</h5>
+                    <h5>Comfy Shorts Socks - Pack of 3</h5>
                     <div class="star">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -127,27 +100,10 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <h4>159,000 VND</h4>
+                    <h4>189,000 VND</h4>
                 </div>
                 <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
             </div>
-            <div class="pro" onclick="window.location.href='P005.html'">
-                <img src="../img/products/a1-uniform/P005-TShirt2.png" alt="">
-                <div class="des">
-                    <span>adidas</span>
-                    <h5>Comfy Cotton Crew Neck Short Leave T-Shirt</h5>
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>289,000 VND</h4>
-                </div>
-                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
-            </div>
-
         </div>
     </section>
 
@@ -158,7 +114,7 @@
         </div>
         <div class="form">
             <input type="text" placeholder="Your email address">
-            <button class="normal"><a href="../login.html">Sign Up</a></button>
+            <button class="normal">Sign Up</button>
         </div>
     </section>
 
@@ -189,7 +145,7 @@
             <h4>My Account</h4>
             <a href="../login.html">Sign In</a>
             <a href="../cart.html">View Cart</a>
-            <a href="../contact.html">Help</a>
+            <a href="../#form-details">Help</a>
         </div>
 
         <div class="col install">
@@ -202,27 +158,17 @@
             <p>Secured Payment Gateways </p>
             <img src="../img/pay/pay.png" alt="">
         </div>
+
+        <div class="copyright">
+            <p>&copy;A-1 Uniform 2023 All Rights Reserved</p>
+        </div>
     </footer>
 
-    <script>
-        var MainImg = document.getElementById("MainImg");
-        var smallimg = document.getElementsByClassName("small-img");
 
-        smallimg[0].onclick = function() {
-            MainImg.src = smallimg[0].src;
-        }
-        smallimg[1].onclick = function() {
-            MainImg.src = smallimg[1].src;
-        }
-        smallimg[2].onclick = function() {
-            MainImg.src = smallimg[2].src;
-        }
-        smallimg[3].onclick = function() {
-            MainImg.src = smallimg[3].src;
-        }
-    </script>
     <script src="../css/script.js"></script>
-    <script src="../js/sanpham.js"></script>
+    <script src="../js/shop.js">
+
+    </script>
 </body>
 
 </html>

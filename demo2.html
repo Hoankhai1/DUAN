@@ -1,116 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .item-name {
-  color: blue;
-}
+    <title>Nút hiển thị hình ảnh</title>
+    <style>
+        #image-overlay {
+            display: none; /* Ẩn hình ảnh ban đầu */
+            position: fixed; /* Thiết lập vị trí cố định trên trang */
+            top: 0;
+            left: 0;
+            width: 100%; /* Chiếm toàn bộ chiều rộng của trang */
+            height: 100%; /* Chiếm toàn bộ chiều cao của trang */
+            background-color: rgba(0, 0, 0, 0.8); /* Màu nền mờ đen */
+            z-index: 9999; /* Đặt lớp cao để nằm trên các phần tử khác */
+        }
 
-.item-price {
-  color: green;
-}
-.item-image {
-  width: 100px;
-  height: 100px;
-}
-
+        #image-overlay img {
+            display: block; /* Hiển thị hình ảnh là một khối */
+            margin: auto; /* Canh giữa hình ảnh theo chiều ngang và dọc */
+            max-width: 80%; /* Giới hạn chiều rộng tối đa của hình ảnh */
+            max-height: 80%; /* Giới hạn chiều cao tối đa của hình ảnh */
+            position: absolute; /* Thiết lập vị trí tương đối trong khung chứa */
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
     </style>
+    <script>
+        function showImage() {
+            var imageOverlay = document.getElementById("image-overlay");
+            imageOverlay.style.display = "block"; // Hiển thị hình ảnh overlay
+        }
+
+        function hideImage() {
+            var imageOverlay = document.getElementById("image-overlay");
+            imageOverlay.style.display = "none"; // Ẩn hình ảnh overlay
+        }
+    </script>
 </head>
 <body>
-  <div id="itemList"></div>
-<div id="itemDiv"> </div>
-  <script>
-    var isLoggedIn = localStorage.getItem("isLoggedIn");
-
-function pay() {
-  const giacuoi1 = document.querySelector('#totalPrice').textContent
-  console.log(giacuoi1)
-  localStorage.setItem('giacuoi', giacuoi1)
-  if (isLoggedIn === "true") {
-    // Nếu đã đăng nhập, hiển thị thông báo thành công
-    alert("Payment successful!");
-    localStorage.removeItem("cartItems");
-    window.location.href = "http://127.0.0.1:5501/trangmuasam2.html";
-
-    // Xoá các phần tử trong danh sách hiển thị giỏ hàng
-    var itemList = document.getElementById("itemList");
-    itemList.innerHTML = "";
-  } else {
-    // Nếu chưa đăng nhập, yêu cầu đăng nhập
-    alert("Please login to proceed with payment.");
-  }
-}
-
-// ...
-
-// Lấy thông tin sản phẩm từ Local Storage và hiển thị nếu có
-var cartItems = localStorage.getItem("cartItems");
-var items = cartItems ? JSON.parse(cartItems) : [];
-
-// Tính tổng giá trị cộng của các sản phẩm
-var total = 0;
-
-// In thông tin sản phẩm
-var itemList = document.getElementById("itemList");
-
-for (var i = 0; i < items.length; i++) {
-  var item = items[i];
-
-  // Tạo phần tử div để chứa thông tin sản phẩm
-  var itemDiv = document.createElement("div");
-  itemDiv.classList.add("item");
-
-  // Tạo phần tử h3 để hiển thị tên sản phẩm
-  var itemName = document.createElement("h3");
-  itemName.textContent = item.name;
-
-  // Tạo phần tử img để hiển thị hình ảnh sản phẩm
-  var itemImage = document.createElement("img");
-  itemImage.src = item.image;
-  itemImage.alt = item.name;
-
-  // Tạo phần tử p để hiển thị giá sản phẩm
-  var itemPrice = document.createElement("p");
-  itemPrice.textContent = "Price: $" + item.price;
-
-  // Tạo phần tử p để hiển thị số lượng sản phẩm
-  var itemQuantity = document.createElement("p");
-  itemQuantity.textContent = "Quantity: " + item.quantity;
-
-  // Tính giá trị cộng của sản phẩm
-  var itemSubtotal = item.price * item.quantity;
-  total += itemSubtotal;
-
-  // Tạo phần tử p để hiển thị giá trị cộng của sản phẩm
-  var itemSubtotalElement = document.createElement("p");
-  itemSubtotalElement.textContent = "Subtotal: $" + itemSubtotal;
-
-  // Gắn các phần tử con vào phần tử div
-  itemDiv.appendChild(itemName);
-  itemDiv.appendChild(itemImage);
-  itemDiv.appendChild(itemPrice);
-  itemDiv.appendChild(itemQuantity);
-  itemDiv.appendChild(itemSubtotalElement);
-
-  // Gắn phần tử div vào danh sách hiển thị giỏ hàng
-  itemList.appendChild(itemDiv);
-}
-
-// Hiển thị tổng giá trị cộng của các sản phẩm
-var totalElement = document.getElementById("total");
-totalElement.textContent = "Total: $" + total;
-
-// ...
-
-
-// ...
-
-</script>
-
-
+    <button onclick="showImage()">Hiển thị hình ảnh</button>
+    <div id="image-overlay" onclick="hideImage()">
+        <img src="img/sizechart.jpg" alt="Hình ảnh">
+    </div>
 </body>
 </html>

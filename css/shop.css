@@ -1,3 +1,43 @@
 .hidden{
     display: none;
 }
+#menu{
+    background: #e5e7eb;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    top: 100px;
+    position: fixed;
+    }
+    
+#menu .category{
+    margin-top: 40px;
+}
+
+#menu .category li{
+    list-style: none;
+    padding: 5px 0;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+#menu .category li:hover{
+    background: #041e42;
+    cursor: pointer;
+}
+
+#menu .category li:hover a{
+    color: #f3f4f6;
+}
+
+#menu .category li:nth-child(1){
+    border-left: 4px solid #fff;
+}
+
+#menu .category li a{
+    text-decoration: none;
+    color: rgb(6, 7, 8);
+    font-weight: 300px;
+    transition: 0.3s ease;
+    
+}

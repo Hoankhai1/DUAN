@@ -103,3 +103,13 @@ var quantityInput = document.getElementById("quantity");
 updateItemCount();
 // Gọi hàm updateItemCount() khi số lượng sản phẩm thay đổi
 document.getElementById("quantity").addEventListener("input", updateItemCount);
+
+function showImage() {
+  var imageOverlay = document.getElementById("image-overlay");
+  imageOverlay.style.display = "block"; // Hiển thị hình ảnh overlay
+}
+
+function hideImage() {
+  var imageOverlay = document.getElementById("image-overlay");
+  imageOverlay.style.display = "none"; // Ẩn hình ảnh overlay
+}
