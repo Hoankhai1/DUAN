@@ -13,7 +13,7 @@ function pay() {
 
     // Xoá các phần tử trong danh sách hiển thị giỏ hàng
     var itemList = document.getElementById("itemList");
-    // itemList.innerHTML = "";
+    itemList.innerHTML = "";
   } else {
     // Nếu chưa đăng nhập, yêu cầu đăng nhập
     alert("Please login to proceed with payment.");
@@ -41,6 +41,14 @@ document.getElementById('totalPrice').innerHTML=items[0].price
 
 
 
+function removeItem(index) {
+  items.splice(index, 1); // Remove the item from the items array
+  renderItems(); // Render the updated list of items
+  document.getElementById("totalPrice").innerHTML = "Total: $" + updateTotalPrice(); // Update the total price
+
+  // Save the updated cart items to localStorage
+  localStorage.setItem("cartItems", JSON.stringify(items));
+}
 
 function renderItems() {
   var itemList = document.getElementById("itemList");
@@ -79,8 +87,8 @@ function renderItems() {
     console.log(JSON.stringify(item.price))
 
     // Tạo div chứa màu sắc của sản phẩm
-    // var color = item.color;
-    // // console.log(color);
+    var color = item.color;
+    console.log(color);
     var colorDiv = document.createElement("div");
     colorDiv.classList.add("color-option");
     colorDiv.style.backgroundColor = item.color;
@@ -105,10 +113,10 @@ function renderItems() {
     // Thiết lập thuộc tính và sự kiện cho nút xóa sản phẩm
     removeButton.innerHTML = "X";
     removeButton.classList.add("removebutton");
-    // removeButton.addEventListener("click", function () {
-    //   removeItem(index); // Gọi hàm xóa sản phẩm khi người dùng nhấn nút "Remove"
+    removeButton.addEventListener("click", function () {
+      // removeItem(index); // Gọi hàm xóa sản phẩm khi người dùng nhấn nút "Remove"
     //   alert('code lỏ')
-    // });
+    });
 
 
     // Thêm nút xóa sản phẩm vào ô hành động
@@ -126,7 +134,6 @@ function renderItems() {
 renderItems();
 // 
 // Hiển thị tổng giá trị của tất cả sản phẩm
-
 function getCart() {
   var cart = localStorage.getItem('cart');
   return cart ? JSON.parse(cart) : [];

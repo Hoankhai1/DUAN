@@ -13,8 +13,6 @@ window.addEventListener('load', function () {
 });
 
 function addToCart(button) {
-  
-
   var productName = button.getAttribute("product-name");
   var price = parseFloat(button.getAttribute("product-price"));
   var quantity = parseInt(document.querySelector('input[type="number"]').value);
@@ -39,6 +37,7 @@ function addToCart(button) {
       image: image,
       color: selectedColor
     });
+ 
   }
   location.reload()
 
@@ -72,7 +71,6 @@ function addToCart(button) {
 
   var countItemElement = document.getElementById("countitem");
   countItemElement.innerText = totalQuantity;
- 
 }
 
 function selectColor(colorOption) {
@@ -82,6 +80,7 @@ function selectColor(colorOption) {
   });
   colorOption.classList.add("selected");
 }
+
 document.getElementById("decrease").addEventListener("click", function () {
   const quantityInput = document.getElementById("quantity");
   let quantity = parseInt(quantityInput.value);
@@ -90,7 +89,6 @@ document.getElementById("decrease").addEventListener("click", function () {
   }
   quantityInput.value = quantity;
 });
-
 document.getElementById("increase").addEventListener("click", function () {
   const quantityInput = document.getElementById("quantity");
   let quantity = parseInt(quantityInput.value);
@@ -99,3 +97,9 @@ document.getElementById("increase").addEventListener("click", function () {
   }
   quantityInput.value = quantity;
 });
+
+// Thêm hàm updateItemCount() để cập nhật số lượng hiển thị ngay lập tức
+var quantityInput = document.getElementById("quantity");
+updateItemCount();
+// Gọi hàm updateItemCount() khi số lượng sản phẩm thay đổi
+document.getElementById("quantity").addEventListener("input", updateItemCount);
