@@ -1,7 +1,7 @@
-// var totalPrice = localStorage.getItem("totalPrice");
+// var totalPrice1 = localStorage.getItem("totalPrice");
 
-// // Hiển thị giá trị tổng giá trị
-// document.getElementById("totalPrice1").innerHTML = "$ " + totalPrice;
+// Hiển thị giá trị tổng giá trị
+// document.getElementById("totalPrice").innerHTML = "$ " + totalPrice1;
 // var totalPrice = localStorage.getItem("totalPrice");
 
 // Hiển thị giá trị tổng giá trị
@@ -24,18 +24,19 @@
 // document.getElementById("totalPrice6").innerHTML = "$ " + totalPrice;
 
 var totalPrice = localStorage.getItem("giacuoi");
-  document.getElementById("totalPrice").innerHTML = "$ " + totalPrice;
-  
+  document.getElementById("totalPrice11").innerHTML = "$ " + totalPrice;
   var shipperPrice = 30;
   var totalWithShipper = parseFloat(totalPrice) + shipperPrice;
   document.getElementById("totalWithShipper").innerHTML = "$ " + totalWithShipper;
   var totalWithShipper = parseFloat(totalPrice) + shipperPrice;
   document.getElementById("totalWithShipper2").innerHTML = "$ " + totalWithShipper;
 
-  var totalPrice = localStorage.getItem("totalPrice");
-  document.getElementById("totalPrice2").innerHTML = "$ " + totalPrice;
-  var totalPrice = localStorage.getItem("totalPrice");
-  document.getElementById("totalPrice3").innerHTML = "$ " + totalPrice;
+  // var totalPrice = localStorage.getItem("totalPrice");
+  // document.getElementById("totalPrice2").innerHTML = "$ " + totalPrice;
+  // var totalPrice = localStorage.getItem("totalPrice");
+  // document.getElementById("totalPrice3").innerHTML = "$ " + totalPrice;
 
-  var totalPrice = localStorage.getItem("totalPrice");
-  document.getElementById("totalPrice7").innerHTML = "$ " + totalPrice;
+  // var totalPrice = localStorage.getItem("totalPrice");
+  // document.getElementById("totalPrice7").innerHTML = "$ " + totalPrice;
+
+

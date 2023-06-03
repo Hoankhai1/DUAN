@@ -40,6 +40,7 @@ function addToCart(button) {
       color: selectedColor
     });
   }
+  location.reload()
 
   localStorage.setItem("cartItems", JSON.stringify(items));
 

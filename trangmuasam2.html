@@ -364,7 +364,7 @@
         <h2 style="margin: 0 0 20px 0;">Order Summary</h2>
         <div class="text1">
           <p><b>Total</b> </p>
-          <p  id="totalPrice" ></p>
+          <p  id="totalPrice11" ></p>
         </div>
         <div class="text2">
           <p style="margin-top: 15px; font-size: 15px;"><b>Shipping</b></p>
@@ -506,7 +506,12 @@
       dk.addEventListener("click",()=>{
         window.location.href="trangthanhtoan2.html"
       })
-
+      const update = localStorage.getItem('giacuoi')
+console.log(update)
+if(update){
+  const updateprice = document.querySelector('#totalPrice11')
+  updateprice.innerHTML = update
+}
     </script>
     <script src="js/total.js"></script>
     <script src="js/pay.js"></script>

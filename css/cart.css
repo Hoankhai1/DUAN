@@ -7,7 +7,7 @@
         border-radius: 4px;
       }
       
-      .remove-button {
+      .removebutton {
         background-color: #f44336;
         color: white;
         border: none;
@@ -21,7 +21,7 @@
         border-radius: 4px;
       }
       
-      .remove-button:hover {
+      .removebutton:hover {
         background-color: #da190b;
       }
       .product-name {
