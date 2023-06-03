@@ -1,9 +1,9 @@
-Ten  A-1Uniforms
+Team  A-1 Uniforms
 ============================
 
 eProject-2023 Batch no: T1.2302.M0
 
-Project title: A-1Uniforms
+Project title: A-1 Uniforms
 
 ========> Group 6 <=========
 
@@ -11,11 +11,11 @@ Project title: A-1Uniforms
 
 Student1448345  Trương Hoàn khải
 
-Student1455776  Nguyễn anh tuấn
+Student1455776  Nguyễn Anh Tuấn
 
-Student1455754  Phù dũng khánh
+Student1455754  Phù Dũng Khánh
 
-Student1449577 Nguyễn xuân thuấn anh
+Student1449577 Nguyễn Xuân Thuấn Anh
 
 ============================
 
