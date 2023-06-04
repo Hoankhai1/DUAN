@@ -166,7 +166,7 @@ position: fixed;
     align-items: flex-start;
     justify-content: center;
     padding: 0 80px;
-    background-image: url("img/hero.png");
+    background-image: url("../img/hero.png");
     width: 100%;
     height: 90vh;
     background-size: cover;
@@ -1295,28 +1295,5 @@ footer a:hover {
         width: 1220px;
         float: right;
     }
-}
-
-.rating-star {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5rem;
-    width: 70%;
-    padding: 8px 0;
-}
-
-.rating-star .star-checked {
-    color: #ffe400;
-    font-weight: 900;
-}
-
-.rating-star .star-uncheck {
-    color: #ffe400;
-    font-weight: unset;
-}
-
-.category-group--margin {
-    margin: 20px 0;
 }
 
