@@ -4,7 +4,17 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Spartan', sans-serif;
-   
+}
+:root{
+	--input-padding-x: 1.5rem;
+	--input-padding-y: 0.75rem;
+}
+
+
+body,
+html{
+	width: 100%;
+	height: 100%;
 }
 
 html {
@@ -38,16 +48,6 @@ p {
     color: #465b52;
     margin: 15px 0 20px 0;
 }
-#prodetails .size h3 button{
-    background-image: url(../img/button.png);
-    border: none;
-    background: none;
-    color:#000
-}
-
-.size{
-    padding-top: 5px;
-}
 
 button.normal {
     font-size: 14px;
@@ -60,7 +60,6 @@ button.normal {
     border: none;
     outline: none;
     transition: 0.2s;
-   
 }
 
 button.white {
@@ -85,6 +84,17 @@ button.white {
 
 body {
     width: 100%;
+    position: relative;
+    background: #fff;
+}
+
+#menu{
+background: #e5e7eb;
+width: 300px;
+height: 100%;
+margin: 0;
+top: 0px;
+position: fixed;
 }
 
 #header {
@@ -172,7 +182,7 @@ body {
 }
 
 #hero button {
-    background-image: url("../img/button.png");
+    background-image: url("img/button.png");
     background-color: transparent;
     color: #088178;
     border: 0;
@@ -487,10 +497,7 @@ body {
     border-bottom-right-radius: 0px;
     outline: none;
 }
-.pro img{
-    width: 300px;
-    height: 300px;
-}
+
 #newsletter .form {
     display: flex;
     width: 40%;
@@ -504,8 +511,31 @@ body {
     border-bottom-left-radius: 0px;
 }
 
+.btn{
+	font-family: 'Kanit',sans-serif;
+}
+
+.page-section{
+	padding: 8rem 0;
+}
+
+.copyright{
+	color:#c0aa83;
+	font-family: 'Kanit',sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+.boxed{
+	background-color: #c0aa83;
+	height: 150px;
+	margin-left: 80px;
+	margin-right: 80px;
+	padding-top: 15px;
+	padding-left: 20px;
+}
+
 footer {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -568,10 +598,6 @@ footer a:hover {
     color: #088178;
 }
 
-footer.uu{
-    position: unset;
-    transform: unset;
-}
 
 /* Shop Page */
 
@@ -618,7 +644,7 @@ footer.uu{
 }
 
 #prodetails .single-pro-image {
-    width: 30%;
+    width: 40%;
     margin-right: 50px;
 }
 
@@ -652,12 +678,11 @@ footer.uu{
 }
 
 #prodetails .single-pro-details input {
-    width: 36px;
-    height: 38px;
+    width: 50px;
+    height: 47px;
     padding-left: 10px;
     font-size: 16px;
     margin-right: 10px;
-    margin-bottom: 10px;
 }
 
 #prodetails .single-pro-details input:focus {
@@ -671,6 +696,91 @@ footer.uu{
 
 #prodetails .single-pro-details span {
     line-height: 25px;
+}
+
+.blog-sidebar-title{
+	color: #242424;
+	font-family: 'Kanit',sans-serif;
+	font-size: 25px;
+	font-weight: 900;
+}
+
+.blog-sidebar-list{
+	color: #242424;
+	font-family: 'Kanit',sans-serif;
+	font-size: 16px;
+	font-weight: 900;
+}
+
+.blog-sidebar-text{
+	color: #242424;
+	font-family: 'Kanit',sans-serif;
+	font-size: 16px;
+	font-weight: 200;
+}
+
+.blog-form{
+	background-color: #F4F4F4; 
+	padding: 50px;
+	height: 1000px;
+}
+
+.list-icon{
+
+	color: #c0aa83;
+
+}
+
+.tags{
+	color: #242424;
+	font-family: 'Kanit',sans-serif;
+	font-size: 20px;
+	font-weight: 200;
+}
+
+.tags{
+	color: #242424;
+	font-family: 'Kanit',sans-serif;
+	font-size: 20px;
+	font-weight: 200;
+}
+
+.product-sidebar-list{
+	color: #242424;
+}
+
+.product-sidebar-list:hover{
+	color: #c0aa83;
+}
+
+.card-title{
+	color: #c0aa83;
+	font-family: 'Kanit',sans-serif;
+	font-size: 25px;
+	font-weight: 900;
+}
+
+.card-text{
+	font-family: 'Kanit',sans-serif;
+	font-size: 13px;
+}
+
+.price-tag{
+	color: #c0aa83;
+	font-family: 'Kanit',sans-serif;
+	font-size: 25px;
+	font-weight: 900;
+}
+
+.button-text{
+	font-family: 'Kanit',sans-serif;
+	font-size: 14px;
+	font-weight: 900;
+}
+
+.product-image{
+	width: 200px;
+	height: 200px;
 }
 
 
@@ -948,102 +1058,6 @@ footer.uu{
 
 
 /* Start Media Query */
-
-@media (max-width:799px) {
-    .section-p1 {
-        padding: 40px;
-    }
-    #navbar {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        position: fixed;
-        top: 0px;
-        right: -300px;
-        width: 300px;
-        height: 100vh;
-        background: #E3E6F3;
-        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-        transition: 0.3s;
-        padding: 80px 0 0 10px;
-    }
-    #navbar li {
-        margin-bottom: 25px;
-    }
-    #navbar.active {
-        right: 0;
-    }
-    #mobile {
-        display: flex;
-    }
-    #mobile i {
-        color: #1a1a1a;
-        font-size: 24px;
-       
-    }
-    
-    #bar {
-        display: initial;
-    }
-    #close {
-        display: initial;
-        font-size: 24px;
-        position: absolute;
-        top: 30px;
-        left: 30px;
-        color: #222;
-    }
-    #lg-bag,
-    #lg-search {
-        display: none;
-    }
-    #hero {
-        padding: 0 80px;
-        height: 70vh;
-        background-position: top 30% right 30%;
-    }
-    #feature {
-        justify-content: center;
-    }
-    #feature .fe-box {
-        margin: 15px;
-    }
-    #product1 .pro-container {
-        justify-content: center;
-    }
-    #product1 .pro {
-        margin: 15px;
-    }
-    #banner {
-        height: 20vh;
-    }
-    #sm-banner .banner-box {
-        min-width: 100%;
-        height: 30vh;
-        padding: 30px;
-    }
-    #banner3 {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        padding: 0 40px;
-    }
-    #banner3 .banner-box {
-        width: 28%;
-    }
-    #newsletter .form {
-        width: 70%;
-    }
-    /* Contact Page */
-    #form-details {
-        padding: 40px;
-    }
-    #form-details form {
-        width: 50%;
-    }
-}
-
 @media (max-width:477px) {
     .section-p1 {
         padding: 20px;
@@ -1150,4 +1164,32 @@ footer.uu{
         width: 100%;
         padding-top: 30px;
     }
+    .container_{
+        background-color: #fff;
+        width: 1220px;
+        float: right;
+    }
+}
+
+.rating-star {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    width: 70%;
+    padding: 8px 0;
+}
+
+.rating-star .star-checked {
+    color: #ffe400;
+    font-weight: 900;
+}
+
+.rating-star .star-uncheck {
+    color: #ffe400;
+    font-weight: unset;
+}
+
+.category-group--margin {
+    margin: 20px 0;
 }

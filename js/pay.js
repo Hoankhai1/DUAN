@@ -1,9 +1,9 @@
 var isLoggedIn = localStorage.getItem("isLoggedIn");
 
 function pay() {
-  const giacuoi1 = document.querySelector('#totalPrice').textContent
-  console.log(giacuoi1)
-  localStorage.setItem('giacuoi', giacuoi1)
+  // const giacuoi1 = document.querySelector('#totalPrice').textContent
+  // console.log(giacuoi1)
+  // localStorage.setItem('giacuoi', giacuoi1)
   if (isLoggedIn === "true") {
     // Nếu đã đăng nhập, hiển thị thông báo thành công
     alert("Payment successful!");
@@ -26,18 +26,19 @@ var items = cartItems ? JSON.parse(cartItems) : [];
 console.log(items)
 document.getElementById('totalPrice').innerHTML=items[0].price
 
+function updateTotalPrice() {
+  var totalPrice = 0;
+  var items = JSON.parse(localStorage.getItem("cartItems"));
 
-// function updateTotalPrice() {
-//   var totalPrice = 0; 
-//   // var totalPrice = localStorage.getItem('totalPrice')
-//   items.forEach(function (item) {
-   
-//         var itemTotal = item.price * item.quantity;
-//     totalPrice += itemTotal;
-//   });
+  items.forEach(function (item) {
+    totalPrice += item.price * item.quantity;
+  });
 
-//   return totalPrice;
-// }
+  var totalPriceElement = document.getElementById("totalPrice");
+  totalPriceElement.innerText = "Total: $" + totalPrice.toFixed(2);
+
+  return totalPrice; // Trả về giá tổng để sử dụng khi cần thiết
+}
 
 
 
@@ -52,7 +53,7 @@ function removeItem(index) {
 
 function renderItems() {
   var itemList = document.getElementById("itemList");
-  // itemList.innerHTML = ""; // Xóa nội dung hiện tại của danh sách
+  itemList.innerHTML = ""; // Xóa nội dung hiện tại của danh sách
 
   items.forEach(function (item, index) {
     // Tạo một hàng mới trong bảng
@@ -101,21 +102,31 @@ function renderItems() {
     quantityInput.min = 1; // Giá trị tối thiểu là 1
     quantityInput.classList.add("quantity-input");
     quantityInput.addEventListener("change", function () {
-      item.quantity = parseInt(quantityInput.value); // Cập nhật giá trị số lượng trong danh sách sản phẩm
-      totalCell.innerHTML = "$" + (item.price * item.quantity); // Cập nhật giá tổng của sản phẩm
-      console.log(totalCell)
-      document.getElementById('totalPrice').innerHTML = (item.price * item.quantity)
-      // Lưu số lượng mới và giá vào Local Storage
-      localStorage.setItem("cartItems", JSON.stringify(items));
-
+      input.addEventListener('input', function() {
+        var index = parseInt(input.dataset.index);
+        var quantity = parseInt(input.value);
+    
+        // Cập nhật số lượng sản phẩm trong items
+        items[index].quantity = quantity;
+    
+        // Cập nhật giá theo số lượng
+        items[index].price = items[index].initialPrice * quantity;
+    
+        // Cập nhật giá tổng
+        updateTotalPrice();
+    
+        // Lưu sản phẩm và giá vào Local Storage
+        localStorage.setItem("cartItems", JSON.stringify(items));
+      });
     });
+    
      
     // Thiết lập thuộc tính và sự kiện cho nút xóa sản phẩm
     removeButton.innerHTML = "X";
     removeButton.classList.add("removebutton");
     removeButton.addEventListener("click", function () {
-      // removeItem(index); // Gọi hàm xóa sản phẩm khi người dùng nhấn nút "Remove"
-    //   alert('code lỏ')
+      removeItem(index);
+      updateTotalPrice(); // Cập nhật lại giá tổng
     });
 
 
@@ -134,27 +145,25 @@ function renderItems() {
 renderItems();
 // 
 // Hiển thị tổng giá trị của tất cả sản phẩm
-function getCart() {
-  var cart = localStorage.getItem('cart');
-  return cart ? JSON.parse(cart) : [];
-}
+// function getCart() {
+//   var cart = localStorage.getItem('cart');
+//   return cart ? JSON.parse(cart) : [];
+// }
 
 
 // var totalPrice = updateTotalPrice() ;
-  // localStorage.setItem("totalPrice", totalPrice);
-
-  // let innerprice = document.querySelector('#totalPrice1')
-  // innerprice.innerHTML = '$' + totalPrice
+//   localStorage.setItem("totalPrice", totalPrice);
+//   innerprice.innerHTML = '$' + totalPrice
  
 
 
 
 
-let removebutton = document.querySelector('.removebutton')
-removebutton.addEventListener('click',()=>{
- localStorage.removeItem('cartItems')
- location.reload()
+// let removebutton = document.querySelector('.removebutton')
+// removebutton.addEventListener('click',()=>{
+//  localStorage.removeItem('cartItems')
+//  location.reload()
  
-}
+// }
 
-)
+// )

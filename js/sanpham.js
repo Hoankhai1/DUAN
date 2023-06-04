@@ -26,9 +26,41 @@ function addToCart(button) {
     return item.productName === productName && item.size === size;
   });
 
+  // if (existingItem) {
+  //   // existingItem.quantity += quantity;
+  // // } else {
+  //   items.push({
+  //     productName: productName,
+  //     price: price,
+  //     quantity: quantity,
+  //     size: size,
+  //     image: image,
+  //     color: selectedColor
+  //   });
+
+  // }
+  // location.reload()
+
+  // localStorage.setItem("cartItems", JSON.stringify(items));
   if (existingItem) {
-    existingItem.quantity += quantity;
+    // Kiểm tra xem có sản phẩm cùng tên và kích thước nhưng màu sắc khác không
+    var differentColorItem = existingItem.color !== selectedColor;
+    if (differentColorItem) {
+      // Tạo một sản phẩm mới với màu sắc khác và thêm vào danh sách
+      items.push({
+        productName: productName,
+        price: price,
+        quantity: quantity,
+        size: size,
+        image: image,
+        color: selectedColor
+      });
+    } else {
+      // Tăng số lượng sản phẩm nếu sản phẩm cùng tên, kích thước và màu sắc
+      existingItem.quantity += quantity;
+    }
   } else {
+    // Thêm sản phẩm mới vào danh sách
     items.push({
       productName: productName,
       price: price,
@@ -37,40 +69,43 @@ function addToCart(button) {
       image: image,
       color: selectedColor
     });
- 
   }
-  location.reload()
 
+  // Cập nhật danh sách sản phẩm trong Local Storage
   localStorage.setItem("cartItems", JSON.stringify(items));
 
-  var itemList = document.getElementById("itemList");
-  itemList.innerHTML = "";
+  // Reload trang để cập nhật giao diện
+  location.reload();
+}
 
-  items.forEach(function (item) {
-    var listItem = document.createElement("li");
-    listItem.classList.add("cart-item");
+var itemList = document.getElementById("itemList");
+itemList.innerHTML = "";
 
-    var image = document.createElement("img");
-    image.src = item.image;
-    image.alt = "Product Image";
-    image.style.maxWidth = "100px";
-    image.classList.add("cart-item-image");
-    listItem.appendChild(image);
+items.forEach(function (item) {
+  var listItem = document.createElement("li");
+  listItem.classList.add("cart-item");
 
-    var details = document.createElement("div");
-    details.classList.add("cart-item-details");
-    details.innerHTML = "<b>Name:</b> " + item.productName + ", <b>Price:</b> $" + item.price + ", <b>Quantity:</b> " + item.quantity + ", <b>Size:</b> " + item.size + ", <b>Color:</b> <span class='color-dot' style='background-color:" + item.color + ";'></span>";
-    listItem.appendChild(details);
+  var image = document.createElement("img");
+  image.src = item.image;
+  image.alt = "Product Image";
+  image.style.maxWidth = "100px";
+  image.classList.add("cart-item-image");
+  listItem.appendChild(image);
 
-    itemList.appendChild(listItem);
-  });
+  var details = document.createElement("div");
+  details.classList.add("cart-item-details");
+  details.innerHTML = "<b>Name:</b> " + item.productName + ", <b>Price:</b> $" + item.price + ", <b>Quantity:</b> " + item.quantity + ", <b>Size:</b> " + item.size + ", <b>Color:</b> <span class='color-dot' style='background-color:" + item.color + ";'></span>";
+  listItem.appendChild(details);
 
-  var totalQuantity = items.reduce(function (sum, item) {
-    return sum + item.quantity;
-  }, 0);
+  itemList.appendChild(listItem);
+});
 
-  var countItemElement = document.getElementById("countitem");
-  countItemElement.innerText = totalQuantity;
+var totalQuantity = items.reduce(function (sum, item) {
+  return sum + item.quantity;
+}, 0);
+
+var countItemElement = document.getElementById("countitem");{
+countItemElement.innerText = totalQuantity;
 }
 
 function selectColor(colorOption) {
