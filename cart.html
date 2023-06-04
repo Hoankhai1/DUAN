@@ -45,21 +45,24 @@
         </section>
 
         <section id="cart" class="section-p1">
-            <table width="100%">
+            <table id="itemTable" wight="100%">
                 <thead>
-                    <tr>
-                        <td>Remove</td>
-                        <td>Image</td>
-                        <td>Product</td>
-                        <td>Price</td>
-                        <td>color</td>
-                        <td>Size</td>
-                        <td>Quantity</td>
-                        <td>Subtotal</td>
-                    </tr>
+                  <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Size</th>
+                    <th>Color</th>
+                    <th>Action</th>
+                  </tr>
                 </thead>
-                <tbody id="itemList"></tbody>
-            </table>
+                <tbody id="itemList">
+                  <!-- Các dòng dữ liệu sẽ được tạo ra bằng JavaScript -->
+                </tbody>
+              </table>
+              
+              
         </section>
 
         <section id="cart-add" class="section-p1">
@@ -122,12 +125,8 @@
                 <p>&copy;A-1 Uniform 2023 All Rights Reserved</p>
             </div>
         </footer>
-
-        <script src="css/script.js"></script>
         <script src="js/pay.js"></script>
-
-        <script>
-      </script>
+  
     </body>
 
 </html>

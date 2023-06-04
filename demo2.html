@@ -48,7 +48,6 @@
         <th>Image</th>
         <th>Name</th>
         <th>Price</th>
-        <th>Quantity</th>
         <th>Size</th>
         <th>Color</th>
         <th>Action</th>
@@ -91,36 +90,6 @@ window.addEventListener('load', function () {
     var priceCell = document.createElement("td");
     priceCell.textContent = "$" + item.price.toFixed(2);
     row.appendChild(priceCell);
-
-    var quantityCell = document.createElement("td");
-    var quantityDecreaseBtn = document.createElement("span");
-    quantityDecreaseBtn.classList.add("quantity-button", "decrease");
-    quantityDecreaseBtn.textContent = "-";
-    quantityDecreaseBtn.onclick = function () {
-      decreaseQuantity(this);
-    };
-    quantityCell.appendChild(quantityDecreaseBtn);
-
-    var quantityInput = document.createElement("input");
-    quantityInput.classList.add("quantity-input");
-    quantityInput.type = "number";
-    quantityInput.min = "1";
-    quantityInput.value = item.quantity;
-    quantityInput.oninput = function () {
-      updateTotalPrice();
-      updateCartItemQuantity(row.dataset.index, parseInt(this.value));
-    };
-    quantityCell.appendChild(quantityInput);
-
-    var quantityIncreaseBtn = document.createElement("span");
-    quantityIncreaseBtn.classList.add("quantity-button", "increase");
-    quantityIncreaseBtn.textContent = "+";
-    quantityIncreaseBtn.onclick = function () {
-      increaseQuantity(this);
-    };
-    quantityCell.appendChild(quantityIncreaseBtn);
-
-    row.appendChild(quantityCell);
 
     var sizeCell = document.createElement("td");
     sizeCell.textContent = item.size;

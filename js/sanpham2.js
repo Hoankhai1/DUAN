@@ -1,51 +1,86 @@
+window.addEventListener('load', function () {
+  var cartItems = localStorage.getItem("cartItems");
+  var items = cartItems ? JSON.parse(cartItems) : [];
 
-function addToCart(button) {
-    var productName = button.getAttribute("product-name");
-    var price = parseFloat(button.getAttribute("product-price"));
-    var quantity = parseInt(document.querySelector('input[type="number"]').value);
-    var size = document.getElementById("size").value;
-    var image = button.getAttribute("product-image");
-    var selectedColor = document.querySelector(".color-option.selected").style.backgroundColor;
-    var cartItems = localStorage.getItem("cartItems");
-    var items = cartItems ? JSON.parse(cartItems) : [];
-  
-    var existingItem = items.find(function (item) {
-      return item.productName === productName && item.size === size;
-    });
-  
-    if (existingItem) {
-      // Kiểm tra xem có sản phẩm cùng tên và kích thước nhưng màu sắc khác không
-      var differentColorItem = existingItem.color !== selectedColor;
-      if (differentColorItem) {
-        // Tạo một sản phẩm mới với màu sắc khác và thêm vào danh sách
-        items.push({
-          productName: productName,
-          price: price,
-          quantity: quantity,
-          size: size,
-          image: image,
-          color: selectedColor
-        });
-      } else {
-        // Tăng số lượng sản phẩm nếu sản phẩm cùng tên, kích thước và màu sắc
-        existingItem.quantity += quantity;
-      }
-    } else {
-      // Thêm sản phẩm mới vào danh sách
-      items.push({
-        productName: productName,
-        price: price,
-        quantity: quantity,
-        size: size,
-        image: image,
-        color: selectedColor
-      });
-    }
-  
-    // Cập nhật danh sách sản phẩm trong Local Storage
+  var itemTable = document.getElementById("itemTable");
+  var itemList = document.getElementById("itemList");
+  itemList.innerHTML = "";
+
+  var totalPrice = 0;
+
+  items.forEach(function (item, index) {
+    var row = document.createElement("tr");
+    row.dataset.index = index;
+
+    var imageCell = document.createElement("td");
+    var image = document.createElement("img");
+    image.src = item.image;
+    image.alt = "Product Image";
+    image.style.maxWidth = "100px";
+    image.classList.add("cart-item-image");
+    imageCell.appendChild(image);
+    row.appendChild(imageCell);
+
+    var nameCell = document.createElement("td");
+    nameCell.textContent = item.productName;
+    row.appendChild(nameCell);
+
+    var priceCell = document.createElement("td");
+    priceCell.textContent = "$" + item.price.toFixed(2);
+    row.appendChild(priceCell);
+
+    var sizeCell = document.createElement("td");
+    sizeCell.textContent = item.size;
+    row.appendChild(sizeCell);
+
+    var colorCell = document.createElement("td");
+    var colorDot = document.createElement("span");
+    colorDot.classList.add("color-dot");
+    colorDot.style.backgroundColor = item.color;
+    colorCell.appendChild(colorDot);
+    row.appendChild(colorCell);
+
+    var actionCell = document.createElement("td");
+    var removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove-button");
+    removeBtn.textContent = "Remove";
+    removeBtn.onclick = function () {
+      removeCartItem(this);
+    };
+    actionCell.appendChild(removeBtn);
+    row.appendChild(actionCell);
+
+    itemList.appendChild(row);
+
+    totalPrice += item.price * item.quantity;
+  });
+
+  function removeCartItem(button) {
+    var row = button.parentNode.parentNode;
+    var index = parseInt(row.dataset.index);
+
+    // Remove the item from the cart
+    items.splice(index, 1);
+
+    // Update the localStorage with the modified cart items
     localStorage.setItem("cartItems", JSON.stringify(items));
-  
-    // Reload trang để cập nhật giao diện
-    location.reload();
+
+    // Remove the row from the table
+    row.remove();
+
+    // Update the total price
+    updateTotalPrice();
   }
-  
+
+  function updateTotalPrice() {
+    totalPrice = 0;
+    items.forEach(function (item) {
+      totalPrice += item.price * item.quantity;
+    });
+    var totalPriceElement = document.getElementById("totalPrice");
+    totalPriceElement.innerText = totalPrice.toFixed(2);
+  }
+
+  var totalPriceElement = document.getElementById("totalPrice");
+  totalPriceElement.innerText = totalPrice.toFixed(2);
+});
