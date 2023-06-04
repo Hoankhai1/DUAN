@@ -141,29 +141,5 @@ function renderItems() {
   });
 }
 
-// Hiển thị danh sách sản phẩm
+
 renderItems();
-// 
-// Hiển thị tổng giá trị của tất cả sản phẩm
-// function getCart() {
-//   var cart = localStorage.getItem('cart');
-//   return cart ? JSON.parse(cart) : [];
-// }
-
-
-// var totalPrice = updateTotalPrice() ;
-//   localStorage.setItem("totalPrice", totalPrice);
-//   innerprice.innerHTML = '$' + totalPrice
- 
-
-
-
-
-// let removebutton = document.querySelector('.removebutton')
-// removebutton.addEventListener('click',()=>{
-//  localStorage.removeItem('cartItems')
-//  location.reload()
- 
-// }
-
-// )
