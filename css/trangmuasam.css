@@ -29,14 +29,6 @@ p {
   
 }
 
-footer {
-  text-align: center;
-  margin-top: 90px;
-  position: fixed;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 #district {
   width: 500px;
   height: 40px;
