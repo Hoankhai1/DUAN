@@ -18,29 +18,35 @@
     <button class="normal" onclick="submit()">Submit</button>
     <button>ad</button>
     <script>
-              function submit() {
+   function submit() {
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
-  var mess = document.getElementById("mess").value;
 
   if (name === "") {
     alert("Please input name");
-    return; // Dừng hàm nếu tên không được nhập
+    return;
   } 
 
   if (email === "") {
     alert("Please input email");
-    return; // Dừng hàm nếu email không được nhập
+    return;
   }
-  if (mess === "") {
-    alert("Please input mess");
-    return; // Dừng hàm nếu email không được nhập
-  }
-  clearInterval
-  // Tiếp tục xử lý khi cả tên và email đã được nhập
-  alert("Submit Feedback Successfully");
-}
 
+  // Kiểm tra định dạng email
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  // Tiếp tục xử lý khi cả tên, email và định dạng email hợp lệ
+  alert("Submit Feedback Successfully");
+
+  // Xóa dữ liệu trong các trường đầu vào
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+}
+ 
     </script>
 </body>
 </html>

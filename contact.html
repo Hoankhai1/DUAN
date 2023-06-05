@@ -23,7 +23,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a class="active" href="contact.html">Contact</a></li>
                 <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
-                
+
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
@@ -74,7 +74,7 @@
     </section>
 
     <section id="form-details">
-       <div id="div1">
+        <div id="div1">
             <span>LEAVE A MESSAGE</span>
             <h2>We'd love to hear from you </h2>
             <input type="text" id="name" placeholder="Your Name" required>
@@ -84,7 +84,7 @@
                 <option value="OrderFeedback">Send Feedback on My Received Order</option>
             </select>
             <br>
-            <textarea  id="mess" cols="30" rows="10" placeholder="Your Message" ></textarea>
+            <textarea id="mess" cols="30" rows="10" placeholder="Your Message"></textarea>
             <button class="normal" onclick="submit()">Submit</button>
         </div>
 
@@ -164,10 +164,10 @@
 
     <!-- <script src="css/script.js"></script> -->
     <script>
-      function submit() {
+        function submit() {
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
-  var email = document.getElementById("mess").value;
+  var mess = document.getElementById("mess").value;
 
   if (name === "") {
     alert("Please input name");
@@ -178,17 +178,19 @@
     alert("Please input email");
     return;
   }
-  var emailPattern = /^[Z-a]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
-    alert("Please enter a valid email address");
-    return;
-  }
   if (mess === "") {
     alert("Please input mess");
     return;
   }
 
-  // Tiếp tục xử lý khi cả tên và email đã được nhập
+  // Kiểm tra định dạng email
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  // Tiếp tục xử lý khi cả tên, email và định dạng email hợp lệ
   alert("Submit Feedback Successfully");
 
   // Xóa dữ liệu trong các trường đầu vào
