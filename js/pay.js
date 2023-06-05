@@ -3,7 +3,6 @@ var isLoggedIn = localStorage.getItem("isLoggedIn");
 function pay() {
   if (isLoggedIn === "true") {
     // Nếu đã đăng nhập, hiển thị thông báo thành côn
-    // localStorage.removeItem("cartItems");
     window.location.href = "trangmuasam2.html";
     // Xoá các phần tử trong danh sách hiển thị giỏ hàng
     var itemList = document.getElementById("itemList");
@@ -23,7 +22,6 @@ window.addEventListener('load', function () {
   itemList.innerHTML = "";
 
   var totalPrice = 0;
-  var totalPrice1 = 0;
 
   items.forEach(function (item, index) {
     var row = document.createElement("tr");
@@ -102,7 +100,6 @@ window.addEventListener('load', function () {
     itemList.appendChild(row);
 
     totalPrice += item.price * item.quantity;
-    totalPrice1 += item.price * item.quantity;
   });
 
   function removeCartItem(button) {
@@ -146,20 +143,14 @@ window.addEventListener('load', function () {
   }
 
   function updateTotalPrice() {
-    totalPrice1 = 0;
     totalPrice = 0;
     items.forEach(function (item) {
       totalPrice += item.price * item.quantity;
-      totalPrice1 += item.price * item.quantity;
     });
     var totalPriceElement = document.getElementById("totalPrice");
     totalPriceElement.innerText = totalPrice.toFixed(2);
-    var totalPriceElement = document.getElementById("totalPrice1");
-    totalPriceElement.innerText = totalPrice1.toFixed(2);
   }
 
   var totalPriceElement = document.getElementById("totalPrice");
   totalPriceElement.innerText = totalPrice.toFixed(2);
-  var totalPriceElement = document.getElementById("totalPrice1");
-  totalPriceElement.innerText = totalPrice1.toFixed(2);
 });
