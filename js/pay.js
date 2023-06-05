@@ -38,6 +38,7 @@ window.addEventListener('load', function () {
 
     var nameCell = document.createElement("td");
     var name = document.createElement("name");
+   
     nameCell.textContent = item.productName;
     name.classList.add("cart-item-name");
     row.appendChild(nameCell);
@@ -71,6 +72,8 @@ window.addEventListener('load', function () {
     quantityIncreaseBtn.textContent = "+";
     quantityIncreaseBtn.onclick = function () {
       increaseQuantity(this);
+      
+     
     };
     quantityCell.appendChild(quantityIncreaseBtn);
 
@@ -100,6 +103,10 @@ window.addEventListener('load', function () {
     itemList.appendChild(row);
 
     totalPrice += item.price * item.quantity;
+<<<<<<< Updated upstream
+=======
+    // totalPrice1 += item.price * item.quantity;
+>>>>>>> Stashed changes
   });
 
   function removeCartItem(button) {
@@ -117,27 +124,33 @@ window.addEventListener('load', function () {
 
     // Update the total price
     updateTotalPrice();
+
   }
 
   function decreaseQuantity(button) {
-    var input = button.nextSibling;
+    
+    var input = document.querySelector('.quantity-input');
+    console.log(input.value)
     var currentValue = parseInt(input.value);
     if (currentValue > 1) {
       input.value = currentValue - 1;
       updateTotalPrice();
-      updateCartItemQuantity(button.parentNode.parentNode.dataset.index, currentValue - 1);
+      updateCartItemQuantity(button.parentNode.parentNode.dataset.index, input.value);
     }
   }
-
+  
   function increaseQuantity(button) {
-    var input = button.previousSibling;
+    
+    var input = document.querySelector('.quantity-input');
+    console.log(input.value)
+
     var currentValue = parseInt(input.value);
     input.value = currentValue + 1;
     updateTotalPrice();
-    updateCartItemQuantity(button.parentNode.parentNode.dataset.index, currentValue + 1);
+    updateCartItemQuantity(button.parentNode.parentNode.dataset.index, input.value);
   }
 
-  function updateCartItemQuantity(index, quantity) {
+  function updateCartItemQuantity(index=0, quantity) {
     items[index].quantity = quantity;
     localStorage.setItem("cartItems", JSON.stringify(items));
   }
@@ -145,7 +158,9 @@ window.addEventListener('load', function () {
   function updateTotalPrice() {
     totalPrice = 0;
     items.forEach(function (item) {
+      console.log(item)
       totalPrice += item.price * item.quantity;
+<<<<<<< Updated upstream
     });
     var totalPriceElement = document.getElementById("totalPrice");
     totalPriceElement.innerText = totalPrice.toFixed(2);
@@ -153,4 +168,20 @@ window.addEventListener('load', function () {
 
   var totalPriceElement = document.getElementById("totalPrice");
   totalPriceElement.innerText = totalPrice.toFixed(2);
+=======
+
+    });
+    var totalPriceElement = document.getElementById("totalPrice");
+    totalPriceElement.innerText = totalPrice
+    localStorage.setItem('gia1', totalPrice)
+
+    // var totalPriceElement = document.getElementById("totalPrice1");
+    // totalPriceElement.innerText = totalPrice1.toFixed(2);
+  }
+
+  var totalPriceElement = document.getElementById("totalPrice");
+  totalPriceElement.innerText = totalPrice.toFixed(1);
+  // var totalPriceElement = document.getElementById("totalPrice1");
+  // totalPriceElement.innerText = totalPrice1.toFixed(2);
+>>>>>>> Stashed changes
 });

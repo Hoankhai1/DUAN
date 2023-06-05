@@ -996,7 +996,14 @@ footer a:hover {
 #cart table td:nth-child(2) {
    margin-right: 40px;
     /* text-align: center; */
-    overflow-wrap: normal
+    overflow-wrap: normal;
+
+
+}
+#cart table tbody td:nth-child(2){
+    font-size: 15px;
+    overflow: hidden;
+    
 }
 
 #cart table td:nth-child(3) {
@@ -1072,6 +1079,10 @@ footer a:hover {
     color: #fff;
     padding: 12px 20px;
 }
+#dk{
+    background-color: #088178;
+  }
+
 
 #subtotal {
     width: 50%;
@@ -1302,4 +1313,5 @@ footer a:hover {
         float: right;
     }
 }
+
 

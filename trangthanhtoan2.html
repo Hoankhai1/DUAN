@@ -364,6 +364,14 @@ payhome.addEventListener("click", ()=>{
   window.location.href='index.html'
   alert("Payment successful");
 })
+  const ii = document.querySelector('#totalPrice1')
+  const giacuoi = localStorage.getItem('gia1')
+  const ship = 30
+
+  ii.innerHTML = parseInt(giacuoi)  
+  const totalWithShipper = document.querySelector('#totalWithShipper')
+  totalWithShipper.innerHTML = parseInt(giacuoi)  + parseInt(ship)
+
     </script>
   </body>
 </html>
