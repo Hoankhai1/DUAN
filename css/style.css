@@ -923,15 +923,15 @@ footer a:hover {
     border: 1px solid #e1e1e1;
 }
 
-#form-details form {
+#form-details div {
     width: 65%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-#form-details form input,
-#form-details form textarea {
+#form-details div input,
+#form-details div textarea {
     width: 100%;
     padding: 12px 15px;
     outline: none;
@@ -939,7 +939,7 @@ footer a:hover {
     border: 1px solid #e1e1e1;
 }
 
-#form-details form button {
+#form-details div button {
     background-color: #088178;
     color: #fff;
 }
@@ -994,8 +994,9 @@ footer a:hover {
 }
 
 #cart table td:nth-child(2) {
-    width: 150px;
-    text-align: center;
+   margin-right: 40px;
+    /* text-align: center; */
+    overflow-wrap: normal
 }
 
 #cart table td:nth-child(3) {
@@ -1005,7 +1006,9 @@ footer a:hover {
 
 #cart table td:nth-child(4),
 #cart table td:nth-child(5),
-#cart table td:nth-child(6) {
+#cart table td:nth-child(6),
+#cart table td:nth-child(7)
+ {
     width: 150px;
     text-align: center;
 }
@@ -1029,12 +1032,14 @@ footer a:hover {
 }
 
 #cart table tbody tr td {
-    padding: 20px;
+    padding: 10px;
 
 }
 
 #cart table tbody td {
     font-size: 13px;
+    overflow-wrap:break-word ;
+    
 }
 
 #cart-add {
@@ -1180,7 +1185,7 @@ footer a:hover {
     #form-details {
         padding: 40px;
     }
-    #form-details form {
+    #form-details div {
         width: 50%;
     }
 }

@@ -252,7 +252,7 @@
           <h2 style="margin: 0 0 20px 0;">Order Summary</h2>
           <div class="text1">
             <p><b>Total</b> </p>
-            <p id="totalPrice11" ></p>
+            <p id="totalPrice1" ></p>
           </div>
           <div class="text2">
             <p style="margin-top: 15px; font-size: 15px;"><b>Shipping</b></p>
@@ -334,16 +334,11 @@
             <p>&copy;A-1 Uniform 2023 All Rights Reserved</p>
         </div>
     </footer>
-   
+ 
     <script src="js/pay.js"></script>
-    <script src="js/total.js"></script>
+
 
     <script>
-//       const gia = updateTotalPrice()
-// console.log(JSON.stringify(gia))
-
-// // Hiển thị tổng giá trị của tất cả sản phẩm
-// document.getElementById("totalPrice11").innerHTML = "$ " + gia;
 
       let i = document.querySelector('.text9');
       let l = document.querySelector('.text7');
@@ -367,6 +362,7 @@ payhome.addEventListener("click", ()=>{
   localStorage.removeItem('cartItems')
   localStorage.removeItem('totalPrice')
   window.location.href='index.html'
+  alert("Payment successful");
 })
     </script>
   </body>
