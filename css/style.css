@@ -614,7 +614,7 @@ footer a:hover {
 
 #page-header h2,
 #page-header p {
-    color: #fff;
+    color:#088178;
 }
 
 #pagination {
@@ -1312,6 +1312,7 @@ footer a:hover {
         width: 1220px;
         float: right;
     }
+    @media screen and (max-width: 500px) {.video{flex-direction: column;}}
 }
 
 
