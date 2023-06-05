@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Cart</title>
+  <style>
+    /* CSS styling for the cart items */
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .cart-item-image {
+      max-width: 100px;
+      margin-right: 10px;
+    }
+
+    .cart-item-details {
+      font-size: 14px;
+    }
+
+    .color-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-left: 5px;
+    }
+
+    .remove-button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .remove-button:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <table id="itemTable">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Size</th>
+        <th>Color</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="itemList">
+      <!-- Các dòng dữ liệu sẽ được tạo ra bằng JavaScript -->
+    </tbody>
+  </table>
+  
+  <h2>Total Price: $<span id="totalPrice"></span></h2>
+  <script>
+window.addEventListener('load', function () {
+  var cartItems = localStorage.getItem("cartItems");
+  var items = cartItems ? JSON.parse(cartItems) : [];
+
+  var itemTable = document.getElementById("itemTable");
+  var itemList = document.getElementById("itemList");
+  itemList.innerHTML = "";
+
+  var totalPrice = 0;
+
+  items.forEach(function (item, index) {
+    var row = document.createElement("tr");
+    row.dataset.index = index;
+
+    var imageCell = document.createElement("td");
+    var image = document.createElement("img");
+    image.src = item.image;
+    image.alt = "Product Image";
+    image.style.maxWidth = "100px";
+    image.classList.add("cart-item-image");
+    imageCell.appendChild(image);
+    row.appendChild(imageCell);
+
+    var nameCell = document.createElement("td");
+    nameCell.textContent = item.productName;
+    row.appendChild(nameCell);
+
+    var priceCell = document.createElement("td");
+    priceCell.textContent = "$" + item.price.toFixed(2);
+    row.appendChild(priceCell);
+
+    var sizeCell = document.createElement("td");
+    sizeCell.textContent = item.size;
+    row.appendChild(sizeCell);
+
+    var colorCell = document.createElement("td");
+    var colorDot = document.createElement("span");
+    colorDot.classList.add("color-dot");
+    colorDot.style.backgroundColor = item.color;
+    colorCell.appendChild(colorDot);
+    row.appendChild(colorCell);
+
+    var actionCell = document.createElement("td");
+    var removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove-button");
+    removeBtn.textContent = "Remove";
+    removeBtn.onclick = function () {
+      removeCartItem(this);
+    };
+    actionCell.appendChild(removeBtn);
+    row.appendChild(actionCell);
+
+    itemList.appendChild(row);
+
+    totalPrice += item.price * item.quantity;
+  });
+
+  function removeCartItem(button) {
+    var row = button.parentNode.parentNode;
+    var index = parseInt(row.dataset.index);
+
+    // Remove the item from the cart
+    items.splice(index, 1);
+
+    // Update the localStorage with the modified cart items
+    localStorage.setItem("cartItems", JSON.stringify(items));
+
+    // Remove the row from the table
+    row.remove();
+
+    // Update the total price
+    updateTotalPrice();
+  }
+
+  function updateTotalPrice() {
+    totalPrice = 0;
+    items.forEach(function (item) {
+      totalPrice += item.price * item.quantity;
+    });
+    var totalPriceElement = document.getElementById("totalPrice");
+    totalPriceElement.innerText = totalPrice.toFixed(2);
+  }
+
+  var totalPriceElement = document.getElementById("totalPrice");
+  totalPriceElement.innerText = totalPrice.toFixed(2);
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Your Name" >
+    <input type="email" id="email" placeholder="Your Email" >
+    <select name="Subject" id="">
+        <option value="Design">Request for Tailor-made Design</option>
+        <option value="OrderFeedback">Send Feedback on My Received Order</option>
+    </select>
+    <br>
+    <textarea  id="mess" cols="30" rows="10" placeholder="Your Message" ></textarea>
+    <button class="normal" onclick="submit()">Submit</button>
+    <button>ad</button>
+    <script>
+              function submit() {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var mess = document.getElementById("mess").value;
+
+  if (name === "") {
+    alert("Please input name");
+    return; // Dừng hàm nếu tên không được nhập
+  } 
+
+  if (email === "") {
+    alert("Please input email");
+    return; // Dừng hàm nếu email không được nhập
+  }
+  if (mess === "") {
+    alert("Please input mess");
+    return; // Dừng hàm nếu email không được nhập
+  }
+  clearInterval
+  // Tiếp tục xử lý khi cả tên và email đã được nhập
+  alert("Submit Feedback Successfully");
+}
+
+    </script>
+</body>
+</html>

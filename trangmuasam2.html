@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  
+  <link rel="stylesheet" href="css/trangmuasam.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+    crossorigin="anonymous"></script>
+  <!-- <script
+      src="https://kit.fontawesome.com/0fd8108150.js"
+      crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+   
+  </style>
+</head>
+
+<body>
+  <section id="header">
+    <a href="#"><img src="img/logoA1.png" class="logo" alt=""></a>
+
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop1.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+        <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+      <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+  <div class="bao" style="display: flex;justify-content: space-between;">
+
+    <section id="ship">
+      <div id="container">
+          <div>
+      
+            <div class="a">
+              <label for="gen1">Shipping</label><br />
+            </div>
+      
+            <form class="b">
+              <p>All of these input are required</p>
+      
+              <input type="text" id="fname" name="fname"  placeholder="Full Name" /><br />
+      
+              <label for="address"></label><br />
+              <input type="text" id="address" name="address"  placeholder="Street Address" /><br />
+      
+              <label for="city"></label><br />
+              <input type="text" id="city" name="city"  placeholder="City" />
+      
+              <label for="district"></label><br />
+              <input type="text" id="district" name="district"  placeholder="District" />
+      
+              <label for="ward"></label><br />
+              <input type="text" id="ward" name="ward"  placeholder="Ward" /><br />
+      
+              <label for="email"></label><br />
+              <input type="email" id="email" name="email"  placeholder="Email" /><br />
+              <label for="phone"></label><br />
+              <input type="tel" id="phone" name="phone"   placeholder="Phone Number" /><br />
+            </form>
+          </div>
+  </section>
+    
+      
+        <div class="iii">
+          <h2 style="margin: 0 0 20px 0;">Order Summary</h2>
+          <div class="text1">
+            <p><b>Total</b> </p>
+            <p id="totalPrice11"></p>
+          </div>
+          <div class="text2">
+            <p style="margin-top: 15px; font-size: 15px;"><b>Shipping</b></p>
+            <p style="margin-top: 15px; font-size: 15px;" id="shipper">$ 30 </p>
+          </div>
+          <hr>
+          <div class="text3">
+            <p style="margin-top: 15px; font-size: 15px;"> <b>TOTAL: </b></p>
+            <P style="margin-top: 15px; font-size: 15px;" id="totalWithShipper"></P>
+          </div>
+          <div class="text4">
+            <button id="dk" >Place Order</button>
+          </div>
+        
+      </div>
+  </div>
+  </div>
+
+
+  <section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+      <h4>Sign Up For Newsletters</h4>
+      <p>Get E-mail updates about our latest shop and <span>special offers.</span> </p>
+    </div>
+    <div class="form">
+      <input type="text" placeholder="Your email address">
+      <button class="normal">Sign Up</button>
+    </div>
+  </section>
+  </footer>
+  <div class="copyright">
+    <p style="text-align: center;">&copy;A-1 Uniform 2023 All Rights Reserved</p>
+  </div>
+  <script>
+    
+    
+    let dk = document.querySelector("#dk")
+    
+    dk.addEventListener("click", () => {
+      const fname = document.querySelector('#fname').value;
+      const address = document.querySelector('#address').value;
+      const city = document.querySelector('#city').value;
+      const district = document.querySelector('#district').value;
+      const email = document.querySelector('#email').value;
+      const phone = document.querySelector('#phone').value;
+      const ward = document.querySelector('#ward').value;
+      if(fname==='' || address==='' || city==='' || email==='' || phone==='' || district==='' || ward ===''){
+      alert("vui long nhap day du thong tin")
+      return
+    }
+    if(fname && address && city && email && phone &&district &&ward){
+      window.location.href = "trangthanhtoan2.html"
+    }
+    })
+    const updateprice = document.querySelector('#totalPrice11')
+    const totalWithShipper = document.querySelector('#totalWithShipper')
+    const gia1 = localStorage.getItem('gia1')
+    const ship = 30
+    updateprice.innerHTML= gia1
+    totalWithShipper.innerHTML = parseInt(gia1)  + parseInt(ship)
+    localStorage.setItem('giacuoi',parseInt(gia1)  + parseInt(ship) )
+    
+// if(update){
+//  
+//   updateprice.innerHTML = update
+// }
+  </script>
+  <script src="js/total.js"></script>
+  <script src="js/pay.js"></script>
+</body>
+
+</html>
