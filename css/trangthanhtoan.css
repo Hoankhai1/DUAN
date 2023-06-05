@@ -1,0 +1,160 @@
+h2 {
+    margin-top: 50px;
+    margin-left: 20px;
+  }
+  .a {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .b {
+    margin-left: 20px;
+    /* display: none; */
+    margin-top: 20px;
+  }
+  /* .active {
+  } */
+  p {
+    margin: 0;
+    font-size: 13px;
+  }
+
+  /* .b input {
+    padding: 10px;
+    width: 500px;
+    height: 40px;
+  } */
+  .container{
+    height: 80vh;
+    
+  }
+  #district {
+    width: 500px;
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 10px;
+    outline: none;
+    margin-bottom: 20px;
+    color: grey;
+  }
+  #male {
+    margin-bottom: 20px;
+  }
+  .c {
+    margin-left: 20px;
+    margin-top: 20px;
+  
+  }
+ 
+  .text7{
+    width: 350px;
+    height: 400px;
+    margin-top: 50px;
+    margin-right: 50px;
+    background: white;
+    display: none;
+    border: 1px solid #333;
+    padding: 45px 35px;
+    box-shadow: 0 0 15px rgba(0, 0, 0,.4);
+  }
+  
+ 
+  hr{
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+  .text1{
+    display: flex;
+    justify-content: space-between;
+  }
+  .text1 p{
+    font-size: 15px;
+  }
+  .text2{
+    display: flex;
+    justify-content: space-between;
+  }
+  hr{
+    margin: 20px 0px;
+  }
+  .text3{
+    display: flex;
+    justify-content: space-between;}
+
+    .text4 button{
+      background-color: #088178;
+      border-radius: 7px;
+      color: white;
+      width: 280px;
+   
+
+    }
+    .text4{
+      margin-top: 40px;
+      text-align: center;
+    }
+     .text5 {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .text6{
+      margin-left: 20px;
+      margin-top: 30px;
+    }
+    .text6 p{
+      
+    font-size: 15px; 
+      
+    }
+    .text9{
+    display: none;
+    padding-top: 30px;
+    }
+    .d{
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+    /* #newsletter{
+        margin-top: 400px;
+    }
+     */
+.qq{
+display: flex; justify-content: space-between; height: 465px;
+}
+     @media (max-width:799px) {
+      .qq{
+        display: grid;
+        grid-template-columns: 100%;
+      }
+      #newsletter{
+        margin-top: 450px;
+      }
+      .text7{
+        margin: 30px auto;
+      }
+      .row{
+        margin: 20px auto;
+      }
+      #cardid{
+        margin: 0 auto;
+      }
+     }
+     @media screen and (max-width : 477px) {
+      .qq{
+        display: grid;
+        grid-template-columns: 100%;
+      }
+      #newsletter{
+        margin-top: 450px;
+      }
+      .text7{
+        margin: 30px auto;
+      }
+      .row{
+        margin: 20px auto;
+      }
+      #cardid{
+        margin: 0 auto;
+      }
+     }

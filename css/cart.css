@@ -64,3 +64,21 @@
   border: 1px solid #cccccc;
   border-radius: 5px;
 }
+#shipthanh{
+  display: flex;
+}
+#mua{
+  padding-left: 50px;
+}
+@media (max-width:799px) {
+  #shipthanh{
+    display: inline;
+  }
+  #mua{
+    padding-bottom: 100px;
+    margin-bottom: 60px;
+  }
+  .a{
+    height: 50px;
+  }
+}
