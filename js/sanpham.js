@@ -89,6 +89,7 @@ items.forEach(function (item) {
   image.src = item.image;
   image.alt = "Product Image";
   image.style.maxWidth = "100px";
+  
   image.classList.add("cart-item-image");
   listItem.appendChild(image);
 

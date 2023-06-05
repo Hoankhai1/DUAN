@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+</head>
+<style>
+    .login-container {
+    width: 300px;
+    padding: 16px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+</style>
+<body>
+
+    <div class="login-container">
+        <h1>Đăng nhập</h1>
+        <form id="loginForm">
+            <label for="username">Tên đăng nhập:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required><br>
+            <input type="submit" value="Đăng nhập">
+        </form>
+    </div>
+    <script src="script.js">
+        document.getElementById("loginForm").addEventListener("submit", function(event){
+    event.preventDefault(); // ngăn không cho form submit, ta sẽ xử lý submit bằng Javascript
+
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if(username === "admin" && password === "admin") {
+        alert("Đăng nhập thành công!");
+    } else {
+        alert("Tên đăng nhập hoặc mật khẩu không đúng!");
+    }
+});
+
+    </script>
+</body>
+</html>

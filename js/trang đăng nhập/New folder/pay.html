@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang thanh toán</title>
+    <link rel="stylesheet" href="style.css"> <!-- Liên kết với tệp CSS để trang trí -->
+    <style>
+     body {
+  background-color: #f1f1f1;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.product h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.product p {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.payment-form {
+  margin-top: 40px;
+}
+
+.payment-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.payment-form input[type="text"],
+.payment-form input[type="email"],
+.payment-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.payment-form button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.payment-form button:hover {
+  background-color: #45a049;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thanh toán</h1>
+        <form>
+            <!-- Các trường nhập thông tin thanh toán -->
+            <div class="form-group">
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="card">Số thẻ tín dụng:</label>
+                <input type="text" id="card" name="card" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="expiry">Ngày hết hạn:</label>
+                <input type="text" id="expiry" name="expiry" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+            </div>
+            
+            <button type="submit">Thanh toán</button>
+        </form>
+    </div>
+    <script>
+        // Lấy các phần tử DOM
+const form = document.getElementById('payment-form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const cardInput = document.getElementById('card');
+const expiryInput = document.getElementById('expiry');
+const cvvInput = document.getElementById('cvv');
+
+// Xử lý sự kiện gửi form
+form.addEventListener('submit', function (event) {
+  event.preventDefault(); // Ngăn chặn hành vi gửi form mặc định
+
+  // Kiểm tra dữ liệu hợp lệ trước khi gửi
+  if (validateForm()) {
+    // Gửi dữ liệu đến máy chủ hoặc thực hiện các hành động khác
+    // ở đây, bạn có thể sử dụng các thư viện AJAX hoặc fetch API để gửi dữ liệu lên máy chủ
+    // Ví dụ:
+    sendPaymentData();
+  }
+});
+
+// Hàm kiểm tra dữ liệu hợp lệ
+function validateForm() {
+  // Kiểm tra tên
+  if (nameInput.value === '') {
+    alert('Vui lòng nhập họ và tên');
+    nameInput.focus();
+    return false;
+  }
+
+  // Kiểm tra email
+  if (emailInput.value === '') {
+    alert('Vui lòng nhập email');
+    emailInput.focus();
+    return false;
+  }
+
+  // Kiểm tra số thẻ tín dụng
+  if (cardInput.value === '') {
+    alert('Vui lòng nhập số thẻ tín dụng');
+    cardInput.focus();
+    return false;
+  }
+
+  // Kiểm tra ngày hết hạn
+  if (expiryInput.value === '') {
+    alert('Vui lòng nhập ngày hết hạn');
+    expiryInput.focus();
+    return false;
+  }
+
+  // Kiểm tra CVV
+  if (cvvInput.value === '') {
+    alert('Vui lòng nhập CVV');
+    cvvInput.focus();
+    return false;
+  }
+
+  return true;
+}
+
+// Hàm gửi dữ liệu thanh toán
+function sendPaymentData() {
+  // Thực hiện các thao tác gửi dữ liệu đến máy chủ ở đây
+  // Ví dụ:
+  alert('Đã gửi dữ liệu thanh toán thành công!');
+  form.reset(); // Xóa các giá trị đã nhập trong form
+}
+
+    </script>
+</body>
+</html>

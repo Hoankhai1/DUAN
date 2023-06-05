@@ -5,6 +5,7 @@ function pay() {
     // Nếu đã đăng nhập, hiển thị thông báo thành công
     alert("Payment successful!");
     localStorage.removeItem("cartItems");
+    window.location.href = "trangmuasam2.html";
     // Xoá các phần tử trong danh sách hiển thị giỏ hàng
     var itemList = document.getElementById("itemList");
     itemList.innerHTML = "";

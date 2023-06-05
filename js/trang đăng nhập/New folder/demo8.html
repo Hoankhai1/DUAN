@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giỏ hàng</title>
+</head>
+<body>
+    <h2>Giỏ hàng</h2>
+
+    <form id="product-form">
+        <label for="product-name">Tên sản phẩm:</label><br>
+        <input type="text" id="product-name" name="product-name" required><br>
+        <label for="product-size">Kích thước:</label><br>
+        <input type="text" id="product-size" name="product-size" required><br>
+        <label for="product-color">Màu sắc:</label><br>
+        <input type="text" id="product-color" name="product-color" required><br>
+        <input type="submit" value="Thêm vào giỏ hàng">
+    </form>
+
+    <div id="cart"></div>
+
+    <script>
+        document.getElementById('product-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Lấy thông tin từ form
+    var productName = document.getElementById('product-name').value;
+    var productSize = document.getElementById('product-size').value;
+    var productColor = document.getElementById('product-color').value;
+
+    // Tạo đối tượng sản phẩm
+    var product = {
+        name: productName,
+        size: productSize,
+        color: productColor
+    };
+
+    // Thêm sản phẩm vào giỏ hàng
+    addToCart(product);
+
+    // Reset form
+    this.reset();
+});
+
+function addToCart(product) {
+    var cartDiv = document.getElementById('cart');
+
+    // Tạo phần tử hiển thị thông tin sản phẩm trong giỏ hàng
+    var productDiv = document.createElement('div');
+    productDiv.textContent = product.name + ' - ' + product.size + ' - ' + product.color;
+
+    // Thêm sản phẩm vào giỏ hàng
+    cartDiv.appendChild(productDiv);
+}
+
+    </script>
+</body>
+</html>
